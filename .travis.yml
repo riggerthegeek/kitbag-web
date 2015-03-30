@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 0.10
+- 0.1
 sudo: false
 before_install:
 - gem install compass
@@ -32,3 +32,6 @@ deploy:
   on:
     repo: slash-dev-slash-null/kitbag-web
   skip_cleanup: true
+notifications:
+  slack:
+    secure: VyYAKRt7Ul1TsVECcUquyg0cBa5HMHFu/fZAwwUFMdoKL5wqgEkkEu+rzCUQl79/y3qHneWF55tGZwwA9LuOd+YUZ2O6DrX5IAUXdO1Vap8VktG5cWL/3MFP1aI8wykWBFd3IEOtwbQVMVzYgWbWw3Ri8Lf77o4LuU5FzWcmRT4=
