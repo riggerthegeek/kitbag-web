@@ -1,0 +1,10 @@
+.btn-new {
+
+    &:after {
+        @extend .fa;
+
+        padding-left: 3px;
+        content: $fa-var-plus-circle;
+    }
+
+}

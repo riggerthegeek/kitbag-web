@@ -1,0 +1,17 @@
+<div id="cookieWarning" ng-if="!hideCookieMessage">
+
+    <div class="container">
+
+        <div class="message">
+            {{ 'COOKIE_POLICY' | translate: {year: year} }}
+        </div>
+
+        <div class="action-button">
+            <a class="btn btn-warning" ng-click="onSubmit()">
+                {{ 'COOKIE_ACCEPT_POLICY' | translate }}
+            </a>
+        </div>
+
+    </div>
+
+</div>

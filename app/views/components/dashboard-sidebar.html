@@ -1,0 +1,20 @@
+<ul class="menu">
+
+    <li ng-repeat="item in dashboardMenu">
+        <a ui-sref="{{ item.state }}" ng-class="{ active: item.active }" ng-attr-kb-confirm-click="{{ item.confirm | translate }}">
+            <span class="icon icon-{{ item.icon }}"></span>
+            <span class="item">
+                {{ item.name | translate }}
+            </span>
+        </a>
+    </li>
+
+</ul>
+
+<ul class="footermenu">
+    <li ng-repeat="item in footerMenu" class="col-xs-{{ footerClass }}">
+        <a ui-sref="{{ item.state }}" tooltip-placement="top" tooltip="{{ item.name | translate }}">
+            <span class="icon icon-{{ item.icon }}"></span>
+        </a>
+    </li>
+</ul>

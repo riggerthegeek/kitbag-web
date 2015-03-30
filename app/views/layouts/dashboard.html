@@ -1,0 +1,45 @@
+<kb-snap-menu snap="snapMenu">
+
+    <main class="layout dashboard_layout">
+
+        <div class="kbSiteContent">
+
+            <div class="container_fluid">
+
+                <div class="sidebar">
+
+                    <div class="logo">
+                        <a href="/">
+                            <img src="images/icons/logo.svg" alt="KitBag" />
+                        </a>
+
+                        <a href="#" class="icon icon-bars" data-toggle="collapse" data-target="#sidebarMenu"></a>
+                    </div>
+
+                    <div id="sidebarMenu" class="collapse">
+
+                        <a ui-sref="kitbag.private.settings" class="userIcon" ng-if="user">
+
+                            <img
+                                gravatar-src="user.getEmailAddress()"
+                                gravatar-size="80"
+                                tooltip="{{ user.getFullName() }}"
+                                tooltip-placement="bottom" />
+
+                        </a>
+
+                        <nav ng-controller="DashboardCtrl" ng-include="'views/components/dashboard-sidebar.html'"></nav>
+
+                    </div>
+
+                </div>
+
+                <div class="layout_content" ng-transclude></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</kb-snap-menu>

@@ -1,0 +1,43 @@
+.layout {
+
+    &.login_layout {
+
+        background-color: $red;
+
+        .layout_content {
+
+            @include border-radius(5px);
+
+            margin: 0 auto;
+            max-width: 400px;
+            background-color: $white;
+            border: 1px solid $dark-grey;
+            padding: 50px;
+
+            @media (max-width: $screen-xs-min) {
+                padding: 20px;
+            }
+
+            .logo {
+
+                display: block;
+                text-align: center;
+                margin-bottom: 50px;
+
+                @media (max-width: $screen-xs-min) {
+                    margin-bottom: 20px;
+                }
+
+                img {
+                    @include remove-img-responsive;
+
+                    max-width: 200px;
+                }
+
+            }
+
+        }
+
+    }
+
+}

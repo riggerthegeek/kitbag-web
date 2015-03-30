@@ -1,0 +1,40 @@
+/**
+ * Border Radius
+ *
+ * Makes a rounded border
+ */
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+    overflow: hidden;
+}
+
+
+/**
+ * Remove img-responsive
+ *
+ * Removes the img-responsive class
+ */
+@mixin remove-img-responsive() {
+    display: initial;
+    max-width: initial;
+    height: initial;
+}
+
+
+/**
+ * Vertical Align
+ *
+ * Uses flexbox to do a vertical align
+ */
+@mixin vertical-align() {
+    display: flex;
+    align-items: center;
+}
+
+
+@mixin add-box-shadow($horizontal-length, $vertical-length, $blur, $spread, $color) {
+    box-shadow: $horizontal-length $vertical-length $blur $spread $color;
+}

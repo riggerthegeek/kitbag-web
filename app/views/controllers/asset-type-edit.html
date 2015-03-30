@@ -1,0 +1,31 @@
+<kblayout>
+
+    <nav class="navbar" role="navigation">
+
+        <div class="container-fluid">
+
+            <div class="title">
+                <i class="icon icon-organization"></i>
+                {{ pageTitle | translate : { organizationName: organization.getName() } }}
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="body">
+
+        <kb-breadcrumbs></kb-breadcrumbs>
+
+        <form
+            sf-schema="schema"
+            sf-form="form"
+            sf-model="data"
+            name="assetTypeEditForm"
+            ng-submit="formSubmit(assetTypeEditForm)">
+
+        </form>
+
+    </div>
+
+</kblayout>

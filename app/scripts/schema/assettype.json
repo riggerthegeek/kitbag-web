@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "manufacturer": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "maintenanceSchedule": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0
+    }
+  },
+  "required": [
+    "manufacturer",
+    "model"
+  ]
+}

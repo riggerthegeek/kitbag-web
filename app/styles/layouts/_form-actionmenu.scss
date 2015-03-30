@@ -1,0 +1,28 @@
+.layout {
+
+    &.form-actionmenu_layout {
+
+        padding-top: 70px;
+
+        .layout_content {
+
+            @extend .col-xs-12;
+            @extend .col-sm-9;
+
+        }
+
+        .layout_rightsidebar {
+
+            @extend .col-xs-12;
+            @extend .col-sm-3;
+
+            background-color: $lightest-grey;
+
+            padding: 20px;
+            @include border-radius(10px);
+
+        }
+
+    }
+
+}

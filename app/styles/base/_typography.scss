@@ -1,0 +1,13 @@
+.sans-serif {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.serif {
+    font-family: 'Nixie One', serif;
+}
+
+.logo {
+    font-size: $xlarge;
+    @extend .serif;
+}

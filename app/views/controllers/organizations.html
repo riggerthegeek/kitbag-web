@@ -1,0 +1,72 @@
+<kblayout>
+
+    <nav class="navbar" role="navigation">
+
+        <div class="container-fluid">
+
+            <div class="title">
+                <i class="icon icon-organization"></i>
+                {{ pageTitle | translate }}
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="body">
+
+        <kb-breadcrumbs></kb-breadcrumbs>
+
+        <div class="wrapper" ng-if="organizations.getFavourites().length > 0">
+
+            <div class="title">
+                {{ 'FAVOURITE_ORGANIZATIONS' | translate }}
+            </div>
+
+            <div class="lozenges">
+
+                <kblozenge
+                    ng-repeat="organization in organizations.getFavourites()"
+                    href=".organization.view"
+                    href-vars="{ organizationId: organization.id }">
+                    <i
+                        ng-click="favourite($event, organization)"
+                        class="favourite"
+                        ng-class="{ 'favourite-on': organization.favourite, 'favourite-off': !organization.favourite }">
+                    </i>
+
+                    {{ organization.name }}
+                </kblozenge>
+
+            </div>
+
+        </div>
+
+        <div class="wrapper" ng-if="organizations.getOrdinary().length > 0">
+
+            <div class="title">
+                {{ 'ORDINARY_ORGANIZATIONS' | translate }}
+            </div>
+
+            <div class="lozenges">
+
+                <kblozenge
+                    ng-repeat="organization in organizations.getOrdinary()"
+                    href=".organization.view"
+                    href-vars="{ organizationId: organization.id }">
+                    <i
+                        ng-click="favourite($event, organization)"
+                        class="favourite"
+                        ng-class="{ 'favourite-on': organization.favourite, 'favourite-off': !organization.favourite }">
+                    </i>
+
+                    {{ organization.name }}
+                </kblozenge>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</kblayout>

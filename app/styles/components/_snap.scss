@@ -1,0 +1,136 @@
+.snap-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.snap-drawers {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+}
+
+.snap-drawer {
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: auto;
+    width: $kb-snap-menu-width;
+    height: auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+}
+
+.snap-drawer-left {
+    left: 0;
+    z-index: 1;
+}
+
+.snap-drawer-right {
+    right: 0;
+    z-index: 1;
+}
+
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+    display: none;
+}
+
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
+    width: 100%;
+}
+
+
+/*
+    Right-hand snap menu
+ */
+
+
+.snap-toggle {
+
+    @include vertical-align();
+    @include add-box-shadow(5px, 5px, 5px, 0px, rgba($medium-grey, 0.8));
+
+    position: fixed;
+    top: 50%;
+    right: 0;
+    margin-top: -($grid-gutter-width);
+    width: $grid-gutter-width;
+    height: ($grid-gutter-width * 2);
+    background-color: $yellow;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
+    border: {
+        top-left-radius: 5px;
+        bottom-left-radius: 5px;
+    }
+
+    .icon {
+        @extend .fa-lg;
+
+        color: $dark-grey;
+    }
+
+}
+
+.right-menu-drawer {
+    padding: 10px {
+        bottom: 0;
+    }
+    color: $white;
+    background-color: $yellow;
+
+    ul {
+
+        @extend .list-unstyled;
+
+        li {
+
+            a {
+
+                @extend .btn;
+                @extend .btn-block;
+                @include button-variant($yellow, $dark-grey, $dark-grey);
+
+                margin: {
+                    bottom: 10px;
+                }
+
+                &.add {
+
+                    &:after {
+                        @extend .btn-new;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+}

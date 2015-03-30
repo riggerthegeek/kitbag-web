@@ -1,0 +1,81 @@
+<!--
+ - KitBag icon
+ -
+ - This is the SVG rules for the KitBag icon
+ -
+ - @author <kitbag.io>
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="390px" height="390px">
+
+    <!-- Satchel -->
+
+    <g>
+
+        <!-- Handle -->
+        <rect
+            x="125"
+            y="27"
+            rx="20"
+            ry="20"
+            width="150"
+            height="90"
+            fill="none"
+            stroke="#333333"
+            stroke-width="20" />
+
+
+        <!-- Satchel body -->
+        <g>
+            <!-- Bottom part of the satchel -->
+            <rect
+                x="20"
+                y="210"
+                rx="20"
+                ry="20"
+                width="350"
+                height="140"
+                fill="#dd2e44"
+                stroke="#333333"
+                stroke-width="20" />
+
+            <!-- Top part of the satchel - overlaps various things -->
+            <rect
+                x="10"
+                y="80"
+                rx="20"
+                ry="20"
+                width="370"
+                height="140"
+                fill="#dd2e44"
+                stroke="#333333"
+                stroke-width="20" />
+
+        </g>
+
+        <!-- Straps -->
+        <g>
+            <!-- Left strap -->
+            <line
+                x1="125"
+                x2="125"
+                y1="167"
+                y2="267"
+                stroke="#333333"
+                stroke-width="20"
+                stroke-linecap="round" />
+
+            <!-- Right strap -->
+            <line
+                x1="275"
+                x2="275"
+                y1="167"
+                y2="267"
+                stroke="#333333"
+                stroke-width="20"
+                stroke-linecap="round" />
+
+        </g>
+
+    </g>
+
+</svg>

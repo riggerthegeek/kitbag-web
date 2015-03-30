@@ -1,0 +1,30 @@
+/*
+
+    Configure Twitter Bootstrap
+
+ */
+
+
+/* Branding colours */
+$brand-primary: darken(#428bca, 6.5%) !default;
+$brand-success: #5cb85c !default;
+$brand-info: #5bc0de !default;
+$brand-warning: $orange;
+$brand-danger: $red;
+
+$navbar-height: $kb-header-height;
+
+
+
+/* Set the font path */
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+
+/* Get Bootstrap */
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+
+
+/* Make all images responsive */
+img {
+    @extend .img-responsive;
+}

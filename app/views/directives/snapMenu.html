@@ -1,0 +1,27 @@
+<div class="right-menu-drawer" snap-drawer="right" ng-if="displaySnap">
+
+    Filters
+
+    <form>
+        <div class="form-group" ng-repeat="filter in snap.filters">
+            <input ng-model="filter.model" placeholder="{{ filter.name }}" class="form-control" />
+        </div>
+    </form>
+
+    <ul ng-if="snap.buttons.length > 0">
+        <li ng-repeat="item in snap.buttons">
+            <a ui-sref="{{ item.state }}" ng-class="item.class" ng-if="!item.hide">
+                {{ item.name | translate }}
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div snap-content="false" snap-options="snapOptions" data-snap-ignore="true" ng-if="displaySnap">
+    <div class="snap-toggle" ng-class="{ active: active }" snap-toggle="right">
+        <i class="icon" ng-class="{ 'icon-pull-right': !active, 'icon-pull-left': active }"></i>
+    </div>
+    <div ng-transclude></div>
+</div>
+
+<div ng-if="!displaySnap" ng-transclude></div>

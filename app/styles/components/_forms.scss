@@ -1,0 +1,33 @@
+.input-group {
+
+    width: 100%;
+
+    .input-group-addon {
+
+        &.input-group-addon-pre {
+            width: 45px;
+        }
+
+    }
+
+}
+
+.form-submit,
+.form-cancel {
+
+    @extend .btn;
+    @extend .btn-block;
+
+}
+
+.form-submit {
+
+    @extend .btn-success;
+
+}
+
+.form-cancel {
+
+    @extend .btn-danger;
+
+}

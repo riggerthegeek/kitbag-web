@@ -1,0 +1,51 @@
+<kblayout>
+
+    <nav class="navbar" role="navigation">
+
+        <div class="container-fluid">
+
+            <div class="title">
+                <i class="icon icon-organization"></i>
+                {{ 'ORGANIZATION_ASSET_TYPES_PAGETITLE' | translate : { organizationName: organization.getName() } }}
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="body">
+
+        <kb-breadcrumbs></kb-breadcrumbs>
+
+        <div class="lozenges">
+
+            <div ng-repeat="assetType in assetTypes.getAll()" class="lozenge lozenge-default">
+
+                <a ui-sref=".asset-type.view({
+                    assetTypeId: assetType.id
+                })">
+
+                    <div class="lozenge-body">
+                        {{ assetType.manufacturer }}
+                        {{ assetType.model }}
+                    </div>
+
+                    <div class="badge" tooltip="{{ 'ASSET_COUNT' | translate:{ count: assetType.assetCount() }:'messageformat' }}">
+                        <span ng-if="assetType.assetCount() > 10">
+                            10&plus;
+                        </span>
+
+                        <span ng-if="assetType.assetCount() <= 10">
+                            {{ assetType.assetCount() }}
+                        </span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</kblayout>

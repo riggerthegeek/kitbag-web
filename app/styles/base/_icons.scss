@@ -1,0 +1,45 @@
+.icon {
+
+    @extend .fa;
+
+    &.#{$kb-icon-prefix}add {
+        @extend .fa-plus-circle;
+    }
+
+    &.#{$kb-icon-prefix}bars {
+        @extend .fa-bars;
+    }
+
+    &.#{$kb-icon-prefix}help {
+        @extend .fa-question-circle;
+    }
+
+    &.#{$kb-icon-prefix}logout {
+        @extend .fa-sign-out;
+    }
+
+    &.#{$kb-icon-prefix}organization {
+        @extend .fa-bank;
+    }
+
+    &.#{$kb-icon-prefix}pull-left {
+        @extend .fa-angle-double-right;
+    }
+
+    &.#{$kb-icon-prefix}pull-right {
+        @extend .fa-angle-double-left;
+    }
+
+    &.#{$kb-icon-prefix}scanner {
+        @extend .fa-qrcode;
+    }
+
+    &.#{$kb-icon-prefix}settings {
+        @extend .fa-cogs;
+    }
+
+    &.#{$kb-icon-prefix}users {
+        @extend .fa-users;
+    }
+
+}

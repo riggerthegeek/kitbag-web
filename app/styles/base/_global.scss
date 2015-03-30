@@ -1,0 +1,115 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.site,
+kblayout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.kbSiteContent {
+    flex: 1;
+}
+
+a, i {
+    outline: none !important;
+}
+
+a {
+    color: $red;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($red, 10%);
+        text-decoration: underline;
+    }
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.vertical-align {
+    @include vertical-align;
+}
+
+.img-center {
+    @extend .center-block;
+}
+
+.img-gravatar {
+    @extend .img-rounded;
+}
+
+.img-border-topbottom {
+    margin: {
+        top: $kb-border;
+        bottom: $kb-border;
+    }
+}
+
+.img-border-side {
+    margin: {
+        left: $kb-border;
+        right: $kb-border;
+    }
+}
+
+.img-border {
+    @extend .img-border-topbottom;
+    @extend .img-border-side;
+}
+
+.logo {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.browsehappy {
+
+    @extend .align-center;
+
+    margin: 0;
+    background-color: $teal;
+    color: $white;
+    padding: 1em 0;
+}
+
+.no-js {
+
+    body {
+
+        img {
+            @extend .img-center;
+        }
+
+        @extend .align-center;
+
+        background-color: $dark-grey;
+        color: $red;
+        font-weight: bold;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 100px 0;
+
+    }
+
+}

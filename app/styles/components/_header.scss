@@ -1,0 +1,126 @@
+.header-navbar {
+
+    @extend .navbar;
+    @extend .navbar-default;
+    @extend .navbar-fixed-top;
+
+    .navbar-header {
+
+        .logo {
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            img {
+
+                @extend .img-rounded;
+
+                height: $navbar-height - 10px;
+                margin: {
+                    top: 5px;
+                    right: 5px;
+                    bottom: 5px;
+                    left: 0;
+                }
+
+                @media (max-width: $screen-sm-min) {
+
+                    margin-left: 15px;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    #main-navbar-collapse {
+
+        .navbar-form {
+
+            .img-gravatar {
+                height: 34px;
+                width: 34px;
+                margin-left: 10px;
+            }
+
+            /* Copy from Bootstrap */
+            .dropdown-menu {
+
+                li > div {
+
+                    > a,
+                    > p {
+                        &.bold {
+                            font-weight: bold;
+                        }
+
+                        display: block;
+                        padding: 3px 20px;
+                        clear: both;
+                        font-weight: normal;
+                        line-height: $line-height-base;
+                        color: $dropdown-link-color;
+                        white-space: nowrap; // prevent links from randomly breaking onto new lines
+                    }
+
+                    p {
+                        &.subtitle {
+                            color: $medium-grey;
+                            font-size: $medium;
+                            font-weight: normal;
+                        }
+
+                        font-weight: bold;
+                    }
+
+                    a {
+                        &:hover,
+                        &:focus {
+                            text-decoration: none;
+                            color: $white;
+                            background-color: $red;
+                        }
+                    }
+
+                }
+
+            }
+
+            .form-group {
+
+                .form-control {
+
+                    &:focus {
+                        background-color: $white;
+                    }
+
+                    background-color: $lightest-grey;
+                    transition: all 0.2s ease-in-out 0s;
+                    padding-right: 35px;
+
+                    @include border-radius(30px);
+
+                }
+
+                .btn-search {
+
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: none;
+
+                }
+
+                border: none;
+                position: relative;
+
+            }
+
+        }
+
+    }
+
+}

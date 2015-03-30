@@ -1,0 +1,19 @@
+.layout {
+
+    &.blackout_layout {
+        background-color: $red;
+        color: $white;
+        padding-top: 10em;
+        height: 100vh;
+
+        .logo {
+            padding-top: 17px;
+        }
+
+        a {
+            color: $white;
+        }
+
+    }
+
+}

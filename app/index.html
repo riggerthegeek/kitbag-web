@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>KitBag</title>
+        <base href="/"/>
+
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/images/favicon/android-chrome-manifest.json">
+        <meta name="msapplication-TileColor" content="#333333">
+        <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <link
+            href="http://fonts.googleapis.com/css?family=Nixie+One|Roboto:400,900,700,400italic,700italic,900italic&subset=latin,latin-ext"
+            rel="stylesheet" type="text/css">
+
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css"/>
+        <!-- endbuild -->
+
+    </head>
+
+    <body ng-app="kitbagApp" class="site">
+
+        <noscript>
+            <p>
+                <img src="images/errors/kitbagerror.jpg" alt="Oh crap! KitBag error" />
+            </p>
+            <p>
+                Please enable JavaScript to use KitBag
+            </p>
+        </noscript>
+
+        <!--[if lt IE 9]>
+        <p class="browsehappy">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">
+                upgrade your browser
+            </a>
+            to improve your experience.
+        </p>
+        <![endif]-->
+
+        <div class="site" ui-view="site "></div>
+
+        <!-- build:js(.) scripts/oldieshim.js -->
+        <!--[if lt IE 9]>
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <![endif]-->
+        <!-- endbuild -->
+
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.js"></script>
+        <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+        <script src="bower_components/tv4/tv4.js"></script>
+        <script src="bower_components/objectpath/lib/ObjectPath.js"></script>
+        <script src="bower_components/angular-schema-form/dist/schema-form.js"></script>
+        <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+        <script src="bower_components/angular-gravatar/build/md5.js"></script>
+        <script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
+        <script src="bower_components/angular-uuid4/angular-uuid4.js"></script>
+        <script src="bower_components/ngprogress-lite/ngprogress-lite.js"></script>
+        <script src="bower_components/messageformat/messageformat.js"></script>
+        <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+        <script src="bower_components/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js"></script>
+        <script src="bower_components/snapjs/snap.js"></script>
+        <script src="bower_components/angular-snap/angular-snap.js"></script>
+        <!-- endbower -->
+        <script src="bower_components/modernizr/feature-detects/getusermedia.js"></script>
+        <script src="bower_components/jsqrcode/src/grid.js"></script>
+        <script src="bower_components/jsqrcode/src/version.js"></script>
+        <script src="bower_components/jsqrcode/src/detector.js"></script>
+        <script src="bower_components/jsqrcode/src/formatinf.js"></script>
+        <script src="bower_components/jsqrcode/src/errorlevel.js"></script>
+        <script src="bower_components/jsqrcode/src/bitmat.js"></script>
+        <script src="bower_components/jsqrcode/src/datablock.js"></script>
+        <script src="bower_components/jsqrcode/src/bmparser.js"></script>
+        <script src="bower_components/jsqrcode/src/datamask.js"></script>
+        <script src="bower_components/jsqrcode/src/rsdecoder.js"></script>
+        <script src="bower_components/jsqrcode/src/gf256poly.js"></script>
+        <script src="bower_components/jsqrcode/src/gf256.js"></script>
+        <script src="bower_components/jsqrcode/src/decoder.js"></script>
+        <script src="bower_components/jsqrcode/src/qrcode.js"></script>
+        <script src="bower_components/jsqrcode/src/findpat.js"></script>
+        <script src="bower_components/jsqrcode/src/alignpat.js"></script>
+        <script src="bower_components/jsqrcode/src/databr.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <!-- Config -->
+        <script src="scripts/config/api.js"></script>
+        <script src="scripts/config/constants.js"></script>
+        <script src="scripts/config/forms.js"></script>
+        <script src="scripts/config/location.js"></script>
+        <script src="scripts/config/loginService.js"></script>
+        <script src="scripts/config/routing.js"></script>
+        <script src="scripts/config/translate.js"></script>
+        <!-- Collections -->
+        <script src="scripts/collections/assets.js"></script>
+        <script src="scripts/collections/assettypes.js"></script>
+        <script src="scripts/collections/organizations.js"></script>
+        <!-- Components -->
+        <script src="scripts/components/cookie.js"></script>
+        <script src="scripts/components/dashboard.js"></script>
+        <!-- Controllers -->
+        <script src="scripts/controllers/404.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/asset.js"></script>
+        <script src="scripts/controllers/assettype.js"></script>
+        <script src="scripts/controllers/assettype-edit.js"></script>
+        <script src="scripts/controllers/barcode_scanner.js"></script>
+        <script src="scripts/controllers/error.js"></script>
+        <script src="scripts/controllers/footer.js"></script>
+        <script src="scripts/controllers/formerror.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/organization.js"></script>
+        <script src="scripts/controllers/organization-edit.js"></script>
+        <script src="scripts/controllers/organizations.js"></script>
+        <!-- Directives -->
+        <script src="scripts/directives/barcodeScanner.js"></script>
+        <script src="scripts/directives/confirmClick.js"></script>
+        <script src="scripts/directives/layout.js"></script>
+        <script src="scripts/directives/lozenge.js"></script>
+        <script src="scripts/directives/snapMenu.js"></script>
+        <!-- Errors -->
+        <script src="scripts/errors/validation.js"></script>
+        <!-- Models -->
+        <script src="scripts/models/asset.js"></script>
+        <script src="scripts/models/assettype.js"></script>
+        <script src="scripts/models/organization.js"></script>
+        <script src="scripts/models/user.js"></script>
+        <!-- Modules -->
+        <script src="scripts/modules/schema/schema.js"></script>
+        <!-- Services -->
+        <script src="scripts/services/api.js"></script>
+        <script src="scripts/services/authentication.js"></script>
+        <script src="scripts/services/breadcrumbs.js"></script>
+        <script src="scripts/services/collection.js"></script>
+        <script src="scripts/services/cookies.js"></script>
+        <script src="scripts/services/engine.js"></script>
+        <script src="scripts/services/formerror.js"></script>
+        <script src="scripts/services/loginservice.js"></script>
+        <script src="scripts/services/model.js"></script>
+        <script src="scripts/services/translation.js"></script>
+        <!-- endbuild -->
+
+    </body>
+
+</html>
