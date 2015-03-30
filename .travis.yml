@@ -22,3 +22,13 @@ before_deploy:
 - tar cvzf dist.tar.gz dist/
 - git add -f dist.tar.gz
 - git commit -am 'Travis Deployment'
+deploy:
+  provider: openshift
+  user: riggerthegeek
+  password:
+    secure: HYtdzirx98bU/iIfj9bRS7n7LOiyh/Ksd8cKSTbwmgCLo42tr7/uAEXdHCz1ylQE3WumiT1S1ta2NHK8Fzr+YzikXqc10JNj4TvjzlHsr1+p4ZEFgLFeMkTWqFa5tvReaXfT51KEC9hfl2EuCSq0QZD6MEerZcbTqgUnmfrVab0=
+  app: kitbagweb
+  domain: riggerthegeek
+  on:
+    repo: slash-dev-slash-null/kitbag-web
+  skip_cleanup: true
