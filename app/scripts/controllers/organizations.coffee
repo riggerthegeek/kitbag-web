@@ -16,11 +16,12 @@ angular.module 'kitbagApp'
 
   $scope.user = user
 
-  $scope.snapMenu = [
-    name: 'NEW_ORGANIZATION_PAGETITLE'
-    state: '.organization.create'
-    class: 'add'
-  ]
+  $scope.snapMenu =
+    buttons: [
+      name: 'NEW_ORGANIZATION_PAGETITLE'
+      state: '.organization.create'
+      class: 'add'
+    ]
 
 
   $scope.favourite = ($event, organization) ->

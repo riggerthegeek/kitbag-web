@@ -18,8 +18,9 @@ angular.module 'kitbagApp'
 
     $scope.canEdit = organization.canEdit user.getId()
 
-    $scope.snapMenu = [
-      name: 'NEW_ASSET_TYPE_PAGETITLE'
-      state: '.asset-type.create'
-      class: 'add'
-    ]
+    $scope.snapMenu =
+      buttons: [
+        name: 'NEW_ASSET_TYPE_PAGETITLE'
+        state: '.asset-type.create'
+        class: 'add'
+      ]

@@ -7,11 +7,13 @@
  # # Snap Menu
 ###
 angular.module 'kitbagApp'
-.directive('kbSnapMenu', ->
+.directive('kbSnapMenu', (lodash) ->
 
   controller: ($scope, snapRemote, snapMenuWidth) ->
 
     $scope.active = false
+
+    $scope.displaySnap = lodash.isUndefined($scope.snap) == false
 
     $scope.snapOptions =
       disable: 'left'
@@ -31,7 +33,7 @@ angular.module 'kitbagApp'
   restrict: 'E'
 
   scope:
-    menu: '='
+    snap: '='
 
   templateUrl: 'views/directives/snapMenu.html'
 
