@@ -181,6 +181,7 @@ angular.module('kitbagApp')
                   'ERROR_REQUIRED'
                   'FORM_ORGANIZATION_NAME'
                   'FORM_ORGANIZATION_FAVOURITE'
+                  'SUBMIT_CREATE'
                   'SUBMIT_SAVE'
                 ]
 

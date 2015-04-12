@@ -1,3 +1,19 @@
+.form-bg {
+
+    @include border-radius(5px);
+
+    padding: 20px;
+    background: {
+        color: $white;
+    }
+    border: {
+        color: $light-grey;
+        style: solid;
+        width: 1px;
+    }
+
+}
+
 .input-group {
 
     width: 100%;
@@ -21,13 +37,49 @@
 }
 
 .form-submit {
-
     @extend .btn-success;
-
 }
 
 .form-cancel {
+    @extend .btn-default;
+}
 
-    @extend .btn-danger;
+.form-wrapper {
+
+    @extend .col-sm-9;
+    @extend .form-horizontal;
+
+    .control-label {
+        @extend .col-sm-2;
+    }
+
+    .form-control {
+        @extend .col-sm-10;
+    }
+
+    .schema-form-checkbox {
+
+        label {
+            @extend .col-sm-offset-2;
+            @extend .col-sm-10;
+        }
+
+    }
+
+}
+
+.form-actionmenu-wrapper {
+
+    .form-actionmenu {
+
+        @extend .form-bg;
+
+        button:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+
+    }
+
+    @extend .col-sm-3;
 
 }

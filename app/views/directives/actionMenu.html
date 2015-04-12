@@ -1,0 +1,11 @@
+<div class="form-actionmenu-wrapper">
+
+    <div class="form-actionmenu">
+
+        <button ng-repeat="item in items" ng-class="item.class" ng-click="item.function(form)">
+            {{ item.name | translate }}
+        </button>
+
+    </div>
+
+</div>

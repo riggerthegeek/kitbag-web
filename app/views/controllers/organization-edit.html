@@ -1,11 +1,36 @@
 <kblayout>
 
-    <kb-breadcrumbs></kb-breadcrumbs>
+    <nav class="navbar" role="navigation">
 
-    <div
-        sf-schema="schema"
-        sf-form="form"
-        sf-model="organization">
+        <div class="container-fluid">
+
+            <div class="title">
+                <i class="icon icon-organization"></i>
+                {{ pageTitle | translate }}
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="body">
+
+        <kb-breadcrumbs></kb-breadcrumbs>
+
+        <form
+            name="organizationForm">
+
+            <div
+                sf-schema="schema"
+                sf-form="form"
+                sf-model="organization"
+                class="form-wrapper">
+            </div>
+
+            <kb-action-menu items="actionMenu" form="organizationForm"></kb-action-menu>
+
+        </form>
+
     </div>
 
 </kblayout>
