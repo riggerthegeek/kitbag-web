@@ -186,7 +186,8 @@ module.exports = function (grunt) {
           'bower_components/font-awesome/css/font-awesome.css',
           'bower_components/ngprogress-lite/ngprogress-lite.css',
           'bower_components/angular-schema-form/dist/bootstrap-decorator.js',
-          'bower_components/angular-snap/angular-snap.css'
+          'bower_components/angular-snap/angular-snap.css',
+          'bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'
         ]
       },
       sass: {
