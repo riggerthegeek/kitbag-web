@@ -37,7 +37,7 @@
 }
 
 .form-submit {
-    @extend .btn-success;
+    @include button-variant($white, $teal, $teal);
 }
 
 .form-cancel {
