@@ -2,8 +2,16 @@
 
     <div class="form-actionmenu">
 
-        <button ng-repeat="item in items" ng-class="item.class" ng-click="item.function(form)">
-            {{ item.name | translate }}
+        <button class="form-submit" ng-click="submit(form, true)" ng-if="displayAddNew">
+            {{ 'SUBMIT_SAVE_AND_ADD' | translate }}
+        </button>
+
+        <button class="form-submit" ng-click="submit(form, false)">
+            {{ 'SUBMIT_SAVE' | translate }}
+        </button>
+
+        <button class="form-cancel" kb-confirm-click="{{ 'CONFIRM_SUBMIT_CANCEL' | translate }}" ng-click="cancelFunction()">
+            {{ 'SUBMIT_CANCEL' | translate }}
         </button>
 
     </div>
