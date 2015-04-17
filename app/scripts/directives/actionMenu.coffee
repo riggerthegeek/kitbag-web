@@ -28,7 +28,7 @@ angular.module('kitbagApp')
         fn = ->
           $state.reload()
 
-      scope.cancelFunction = fn
+      fn()
 
 
   restrict: 'E'
