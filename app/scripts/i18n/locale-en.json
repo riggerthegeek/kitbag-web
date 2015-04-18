@@ -33,7 +33,7 @@
   "LOGOUT_PAGETITLE": "Logout",
   "MAINTENANCE_SCHEDULE_EXPLANATION": "The number of days that the item should be called in for maintenance (0 for never)",
   "MANUFACTURER_EXPLANATION": "The name of the manufacturer",
-  "MODEL_EXPLANATION": "The item's model",
+  "MODEL_EXPLANATION": "The item's model name",
   "NEW_ASSET_TYPE_PAGETITLE": "New asset type",
   "NEW_BUTTON": "New",
   "NEW_ORGANIZATION_PAGETITLE": "New organization",
