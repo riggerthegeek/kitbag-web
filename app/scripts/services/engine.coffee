@@ -27,14 +27,6 @@ angular.module 'kitbagApp'
 
 
 
-    newOrganization: (data) ->
-
-      api.callURL 'post', 'organization',
-        name: data.name,
-        favourite: data.favourite
-
-
-
     login: (emailAddress, password, rememberMe) ->
 
       defer = $q.defer()
@@ -89,6 +81,23 @@ angular.module 'kitbagApp'
       else
         # Edit existing asset type
         api.callURL 'put', 'asset/type/' + data.getId(), obj
+
+
+
+    saveOrganization: (data) ->
+
+      obj =
+        name: data.getName()
+        ownerId: data.getOwnerId()
+        contributors: data.getContributors()
+        favourite: data.getFavourite()
+
+      if data.getId() == null
+        # Create new organization
+        api.callURL 'post', 'organization', obj
+      else
+        # Edit existing organization
+        api.callURL 'put', 'organization/' + data.getId(), obj
 
 
 

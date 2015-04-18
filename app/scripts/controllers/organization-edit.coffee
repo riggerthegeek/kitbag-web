@@ -49,37 +49,21 @@ angular.module 'kitbagApp'
     if form.$valid
 
       # Convert to an Organization model
-      organization = new OrganizationModel $scope.organization
+      data = new OrganizationModel $scope.organization
 
-      # Validate
-      try
+      if $scope.createNew == false
+        data.setId = organization.getId()
 
-        organization.validate()
+      engine.saveOrganization (data)
+        .then (organization) ->
 
-        if $scope.createNew
+          if form.addNew
+            # Add a new organization
+            $state.reload()
+          else
+            # Go to organization view page
+            $state.go '^.view',
+              organizationId: organization.id
 
-          # Create a new organization
-          engine.newOrganization (organization.toObject())
-          .then (organization) ->
-
-            if form.addNew
-              # Add a new organization
-              $state.reload()
-            else
-              # Go to organization view page
-              $state.go '^.view',
-                organizationId: organization.id
-
-          .catch (err) ->
-            formError.open 'API_ERROR_' + err.status
-
-        else
-
-          # Edit an existing organization
-          # @todo
-
-      catch err
-
-        # Validation error
-        # @todo
-        console.log err
+        .catch (err) ->
+          formError.open 'API_ERROR_' + err.status

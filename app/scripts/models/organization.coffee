@@ -32,8 +32,19 @@ angular.module 'kitbagApp'
 
 
 
+
+    getContributors: ->
+      @contributors
+
+
+
     getFavourite: ->
       @favourite
+
+
+
+    getOwnerId: ->
+      @ownerId
 
 
 
