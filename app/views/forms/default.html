@@ -1,8 +1,9 @@
 <div class="form-group schema-form-{{form.type}} {{form.htmlClass}}"
      ng-class="{'has-error': hasError() && form.feedback !== false, 'has-success': hasSuccess() && form.feedback !== false, 'has-feedback': form.feedback !== false }">
+
     <label class="control-label" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
 
-    <div ng-class="{ 'input-group': form.addonPre || form.addonPost }">
+    <div class="form-input-wrapper" ng-class="{ 'input-group': form.addonPre || form.addonPost }">
 
         <span
             class="input-group-addon input-group-addon-pre"
