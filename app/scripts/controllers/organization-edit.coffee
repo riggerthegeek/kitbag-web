@@ -35,9 +35,12 @@ angular.module 'kitbagApp'
   $scope.form = [
     key: 'name'
     title: translate.FORM_ORGANIZATION_NAME
+    description: translate.ORGANIZATION_NAME_EXPLANATION
+    placeholder: translate.ORGANIZATION_NAME_PLACEHOLDER
   ,
     key: 'favourite'
     title: translate.FORM_ORGANIZATION_FAVOURITE
+    description: translate.ORGANIZATION_FAVOURITE_EXPLANATION
     type: 'checkbox'
   ]
 

@@ -6,5 +6,8 @@
   "NEW_ORGANIZATION_PAGETITLE": "New organisation",
   "ORDINARY_ORGANIZATIONS": "Organisations",
   "ORGANIZATION_EDIT": "Edit organisation",
+  "ORGANIZATION_FAVOURITE_EXPLANATION": "A favourite organisation appears at the top of the page",
+  "ORGANIZATION_NAME_EXPLANATION": "The name of your organisation",
+  "ORGANIZATION_NAME_PLACEHOLDER": "Springfield Nuclear Plant",
   "ORGANIZATIONS_PAGETITLE": "My organisations"
 }

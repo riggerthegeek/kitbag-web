@@ -181,8 +181,9 @@ angular.module('kitbagApp')
                   'ERROR_REQUIRED'
                   'FORM_ORGANIZATION_NAME'
                   'FORM_ORGANIZATION_FAVOURITE'
-                  'SUBMIT_CREATE'
-                  'SUBMIT_SAVE'
+                  'ORGANIZATION_FAVOURITE_EXPLANATION'
+                  'ORGANIZATION_NAME_EXPLANATION'
+                  'ORGANIZATION_NAME_PLACEHOLDER'
                 ]
 
                 $translate translate
@@ -245,8 +246,6 @@ angular.module('kitbagApp')
                       'MODEL_EXPLANATION'
                       'FORM_MAINTENANCE_SCHEDULE'
                       'MAINTENANCE_SCHEDULE_EXPLANATION'
-                      'SUBMIT_CREATE'
-                      'SUBMIT_SAVE'
                     ]
 
                     $translate translate
@@ -301,8 +300,6 @@ angular.module('kitbagApp')
                         'MODEL_EXPLANATION'
                         'FORM_MAINTENANCE_SCHEDULE'
                         'MAINTENANCE_SCHEDULE_EXPLANATION'
-                        'SUBMIT_CREATE'
-                        'SUBMIT_SAVE'
                       ]
 
                       $translate translate
@@ -335,7 +332,6 @@ angular.module('kitbagApp')
                     'ERROR_REQUIRED'
                     'FORM_ORGANIZATION_NAME'
                     'FORM_ORGANIZATION_FAVOURITE'
-                    'SUBMIT_SAVE'
                   ]
 
                   $translate translate
