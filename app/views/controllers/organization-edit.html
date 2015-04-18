@@ -18,7 +18,8 @@
         <kb-breadcrumbs></kb-breadcrumbs>
 
         <form
-            name="organizationForm">
+            name="organizationForm"
+            ng-submit="formSubmit(organizationForm)">
 
             <div
                 sf-schema="schema"
@@ -28,8 +29,7 @@
             </div>
 
             <kb-action-menu
-                form="organizationForm"
-                submit="formSubmit">
+                add-new="true">
             </kb-action-menu>
 
         </form>

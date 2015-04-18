@@ -46,14 +46,25 @@
 
 .form-wrapper {
 
-    @extend .col-sm-9;
+    @extend .col-md-9;
     @extend .form-horizontal;
 
     .control-label {
         @extend .col-sm-2;
     }
 
-    .form-control {
+    .form-input-wrapper {
+        @extend .col-sm-10;
+    }
+
+    .form-control-feedback {
+        @media (min-width: $screen-sm-min) {
+            margin-top: -24px;
+        }
+    }
+
+    .help-block {
+        @extend .col-sm-offset-2;
         @extend .col-sm-10;
     }
 
@@ -68,18 +79,27 @@
 
 }
 
-.form-actionmenu-wrapper {
+.actionmenu-wrapper {
 
-    .form-actionmenu {
+    @media (max-width: $screen-sm-max) {
+        margin: {
+            top: 10px;
+        }
+    }
+
+    @extend .btn-group-vertical;
+
+
+    .actionmenu {
 
         @extend .form-bg;
 
-        button:not(:last-of-type) {
+        .form-btn:not(:last-of-type) {
             margin-bottom: 20px;
         }
 
     }
 
-    @extend .col-sm-3;
+    @extend .col-md-3;
 
 }

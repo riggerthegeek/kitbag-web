@@ -7,41 +7,41 @@
  # # Action Menu directive
 ###
 angular.module('kitbagApp')
-.directive 'kbActionMenu', ($state, lodash) ->
+.directive 'kbActionMenu', ($q, $state, lodash) ->
 
 
-  link: (scope) ->
+  link: (scope, element, attrs, formCtrl) ->
 
     # Default the add new button to true
     scope.displayAddNew = if lodash.isBoolean(scope.addNew) then scope.addNew else true
+
+
+    scope.submitFunction = (addNew) ->
+
+      formCtrl.addNew = if lodash.isBoolean(addNew) then addNew else false
+
 
     # Create the cancel function
     scope.cancelFunction = ->
 
       if lodash.isString scope.cancelState
         # Go to the cancel state
-        fn = ->
-          $state.go scope.cancelState
+        $state.go scope.cancelState
 
       else
         # Reload this state
-        fn = ->
-          $state.reload()
+        $state.reload()
 
-      fn()
+
+  require: '^form'
 
 
   restrict: 'E'
 
 
-  replace: true
-
-
   scope:
     addNew: '='
     cancelState: '='
-    form: '='
-    submit: '='
 
 
   templateUrl: 'views/directives/actionMenu.html'

@@ -29,6 +29,8 @@ angular.module 'kitbagApp'
 
   $scope.pageTitle = if $scope.createNew then 'NEW_ORGANIZATION_PAGETITLE' else 'ORGANIZATION_EDIT'
 
+  $scope.buttons = {}
+
   $scope.form = [
     key: 'name'
     title: translate.FORM_ORGANIZATION_NAME
@@ -38,18 +40,7 @@ angular.module 'kitbagApp'
     type: 'checkbox'
   ]
 
-  $scope.actionMenu = [
-    name: 'SUBMIT_SAVE'
-    class: 'form-submit'
-    function: formSubmit
-  ,
-    name: 'SUBMIT_CANCEL'
-    class: 'form-cancel'
-    function: (form) ->
-      console.log form
-  ]
-
-  formSubmit = (form) ->
+  $scope.formSubmit = (form) ->
 
     $scope.$broadcast 'schemaFormValidate'
 
@@ -67,9 +58,17 @@ angular.module 'kitbagApp'
       console.log JSON.stringify organization.toObject(), null, 4
 
       if $scope.createNew
+
         engine.newOrganization (organization.toObject())
         .then (organization) ->
-          $state.go 'organization.view',
-            organizationId: organization.id
+
+          if form.addNew
+            # Add a new organization
+            console.log 'todo'
+          else
+            # Go to organization view page
+            $state.go 'organization.view',
+              organizationId: organization.id
+
 #          .catch (err) ->
 #            formError.open 'twat'

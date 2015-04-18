@@ -1,16 +1,27 @@
-<div class="form-actionmenu-wrapper">
+<div class="actionmenu-wrapper">
 
-    <div class="form-actionmenu">
+    <div class="actionmenu">
 
-        <button class="form-submit" ng-click="submit(form, true)" ng-if="displayAddNew">
+        <button
+            class="form-btn form-submit"
+            type="submit"
+            ng-click="submitFunction(true)"
+            ng-if="displayAddNew">
             {{ 'SUBMIT_SAVE_AND_ADD' | translate }}
         </button>
 
-        <button class="form-submit" ng-click="submit(form, false)">
+        <button
+            class="form-btn form-submit"
+            ng-click="submitFunction(false)"
+            type="submit">
             {{ 'SUBMIT_SAVE' | translate }}
         </button>
 
-        <button class="form-cancel" kb-confirm-click="{{ 'CONFIRM_SUBMIT_CANCEL' | translate }}" ng-click="cancelFunction()">
+        <button
+            class="form-btn form-cancel"
+            type="button"
+            kb-confirm-click="{{ 'CONFIRM_SUBMIT_CANCEL' | translate }}"
+            ng-click="cancelFunction()">
             {{ 'SUBMIT_CANCEL' | translate }}
         </button>
 
