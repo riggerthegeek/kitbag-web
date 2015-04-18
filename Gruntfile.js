@@ -11,6 +11,7 @@
 // 'test/spec/**/*.js'
 
 var fs = require('fs-extra');
+var semver = require('semver');
 
 module.exports = function (grunt) {
 
@@ -19,6 +20,8 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  var productionVersion = '1.0.0';
 
   // Configurable paths for the application
   var appConfig = {
@@ -541,6 +544,7 @@ module.exports = function (grunt) {
       development: {
         constants: {
           ENV: {
+            betaRelease: semver.lt('0.0.0', '1.0.0'),
             name: 'development',
             version: pkg.version
           }
@@ -549,6 +553,7 @@ module.exports = function (grunt) {
       production: {
         constants: {
           ENV: {
+            betaRelease: semver.lt('0.0.0', '1.0.0'),
             name: 'production',
             version: pkg.version
           }
