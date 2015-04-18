@@ -16,7 +16,8 @@ angular.module 'kitbagApp'
   translate,
   OrganizationModel,
   $state,
-  user
+  user,
+  formError
 ) ->
 
   $scope.user = user
@@ -42,8 +43,6 @@ angular.module 'kitbagApp'
 
   $scope.formSubmit = (form) ->
 
-    $scope.$broadcast 'schemaFormValidate'
-
     if form.$valid
 
       # Convert to an Organization model
@@ -51,24 +50,33 @@ angular.module 'kitbagApp'
 
       # Validate
       try
+
         organization.validate()
+
+        if $scope.createNew
+
+          # Create a new organization
+          engine.newOrganization (organization.toObject())
+          .then (organization) ->
+
+            if form.addNew
+              # Add a new organization
+              $state.reload()
+            else
+              # Go to organization view page
+              $state.go '^.view',
+                organizationId: organization.id
+
+          .catch (err) ->
+            formError.open 'API_ERROR_' + err.status
+
+        else
+
+          # Edit an existing organization
+          # @todo
+
       catch err
+
+        # Validation error
+        # @todo
         console.log err
-
-      console.log JSON.stringify organization.toObject(), null, 4
-
-      if $scope.createNew
-
-        engine.newOrganization (organization.toObject())
-        .then (organization) ->
-
-          if form.addNew
-            # Add a new organization
-            console.log 'todo'
-          else
-            # Go to organization view page
-            $state.go 'organization.view',
-              organizationId: organization.id
-
-#          .catch (err) ->
-#            formError.open 'twat'
