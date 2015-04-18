@@ -32,12 +32,6 @@ angular.module 'kitbagApp'
 
   $scope.data = if $scope.createNew then {} else assetType
 
-  $scope.snapMenu = [
-    name: 'NEW_ASSET_TYPE_PAGETITLE',
-    state: '^.^.create'
-    class: 'add'
-  ]
-
   $scope.form = [
     key: 'manufacturer'
     title: translate.FORM_MANUFACTURER
@@ -56,10 +50,6 @@ angular.module 'kitbagApp'
     description: translate.MAINTENANCE_SCHEDULE_EXPLANATION
     feedback: false
     minimum: 0
-  ,
-    type: 'submit'
-    title: if $scope.createNew then translate.SUBMIT_CREATE else translate.SUBMIT_SAVE
-    style: 'btn-success btn-lg btn-block'
   ]
 
   # Get the schema
@@ -67,8 +57,6 @@ angular.module 'kitbagApp'
 
   # Submit the form
   $scope.formSubmit = (form) ->
-
-    $scope.$broadcast 'schemaFormValidate'
 
     if form.$valid
 
@@ -87,11 +75,15 @@ angular.module 'kitbagApp'
           # Push into a model instance
           obj = AssetTypeModel.toModel result
 
-          $state.go '^.detail.view',
-            organizationId: obj.getOrganizationId()
-            assetTypeId: obj.getId()
+          if form.addNew
+            # Add a new asset type
+            $state.reload
+              reload: true
+          else
+            # Go to the asset we've just created
+            $state.go '^.view',
+              organizationId: obj.getOrganizationId()
+              assetTypeId: obj.getId()
 
         .catch (err) ->
           console.log err
-
-  return
