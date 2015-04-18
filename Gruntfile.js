@@ -30,6 +30,8 @@ module.exports = function (grunt) {
 
   appConfig.constants = appConfig.app + '/scripts/config/envvars.coffee';
 
+  var pkg = require('./package');
+
   var modRewrite = require('connect-modrewrite');
   var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
@@ -40,6 +42,9 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
+
+    // NPM Package
+    pkg: pkg,
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -536,14 +541,16 @@ module.exports = function (grunt) {
       development: {
         constants: {
           ENV: {
-            name: 'development'
+            name: 'development',
+            version: pkg.version
           }
         }
       },
       production: {
         constants: {
           ENV: {
-            name: 'production'
+            name: 'production',
+            version: pkg.version
           }
         }
       }
