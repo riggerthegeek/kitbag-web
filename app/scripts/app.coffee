@@ -11,6 +11,7 @@
 angular
 .module 'kitbagApp', [
   'kitbag.schema'
+  'config'
   'ngAnimate'
   'ngAria'
   'ipCookie'

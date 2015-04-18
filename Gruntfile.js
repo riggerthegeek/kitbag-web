@@ -511,6 +511,43 @@ module.exports = function (grunt) {
     },
 
 
+    ngconstant: {
+
+      options: {
+        dest: '.tmp/ngconstants/envvars.js',
+        name: 'config',
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}'
+      },
+
+      development: {
+        constants: {
+          ENV: {
+            name: 'development'
+          }
+        }
+      },
+      production: {
+        constants: {
+          ENV: {
+            name: 'production'
+          }
+        }
+      }
+
+    },
+
+
+    js2coffee: {
+
+      ngconstants: {
+        src: '.tmp/ngconstants/envvars.js',
+        dest: '<%= yeoman.app %>/scripts/config/envvars.coffee'
+      }
+
+    },
+
+
     ngtemplates: {
       kitbagApp: {
         options: {
@@ -575,6 +612,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
+      'js2coffee:ngconstants',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -601,6 +640,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
+    'js2coffee:ngconstants',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
