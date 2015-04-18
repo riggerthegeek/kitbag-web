@@ -7,7 +7,7 @@
  # # Action Menu directive
 ###
 angular.module('kitbagApp')
-.directive 'kbActionMenu', ($q, $state, lodash) ->
+.directive 'kbActionMenu', ($q, $state, lodash, $rootScope) ->
 
 
   link: (scope, element, attrs, formCtrl) ->
@@ -17,6 +17,8 @@ angular.module('kitbagApp')
 
 
     scope.submitFunction = (addNew) ->
+
+      $rootScope.$broadcast 'schemaFormValidate'
 
       formCtrl.addNew = if lodash.isBoolean(addNew) then addNew else false
 
