@@ -46,7 +46,8 @@
 
 .form-wrapper {
 
-    @extend .col-md-9;
+    @extend .col-lg-9;
+    @extend .col-md-8;
     @extend .form-horizontal;
 
     .control-label {
@@ -87,12 +88,14 @@
         }
     }
 
-    @extend .btn-group-vertical;
-
 
     .actionmenu {
 
         @extend .form-bg;
+
+        .form-btn {
+            white-space: normal;
+        }
 
         .form-btn:not(:last-of-type) {
             margin-bottom: 20px;
@@ -100,6 +103,7 @@
 
     }
 
-    @extend .col-md-3;
+    @extend .col-lg-3;
+    @extend .col-md-4;
 
 }
