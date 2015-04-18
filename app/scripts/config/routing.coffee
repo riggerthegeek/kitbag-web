@@ -160,7 +160,7 @@ angular.module('kitbagApp')
                 templateUrl: 'views/controllers/organization-edit.html'
                 controller: 'OrganizationEditCtrl'
             data:
-              pageTitle: 'BREADCRUMB_CREATE'
+              pageTitle: 'BREADCRUMB_CREATE_ORGANIZATION'
             resolve:
               organization: ->
                 null
@@ -219,7 +219,7 @@ angular.module('kitbagApp')
                     templateUrl: 'views/controllers/asset-type-edit.html'
                     controller: 'AssetTypeEditCtrl'
                 data:
-                  pageTitle: 'BREADCRUMB_CREATE'
+                  pageTitle: 'BREADCRUMB_CREATE_ASSET_TYPE'
                 resolve:
                   assetType: ->
                     null
@@ -278,7 +278,7 @@ angular.module('kitbagApp')
                       templateUrl: 'views/controllers/asset-type-edit.html'
                       controller: 'AssetTypeEditCtrl'
                   data:
-                    pageTitle: 'BREADCRUMB_EDIT'
+                    pageTitle: 'BREADCRUMB_EDIT_ASSET_TYPE'
                   resolve:
                     schema: ($q, schema) ->
 
@@ -316,7 +316,7 @@ angular.module('kitbagApp')
                   templateUrl: 'views/controllers/organization-edit.html'
                   controller: 'OrganizationEditCtrl'
               data:
-                pageTitle: 'BREADCRUMB_EDIT'
+                pageTitle: 'BREADCRUMB_EDIT_ORGANIZATION'
               resolve:
                 schema: ($q, schema) ->
                   defer = $q.defer()

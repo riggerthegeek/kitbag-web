@@ -18,11 +18,19 @@
         <kb-breadcrumbs></kb-breadcrumbs>
 
         <form
-            sf-schema="schema"
-            sf-form="form"
-            sf-model="data"
             name="assetTypeEditForm"
             ng-submit="formSubmit(assetTypeEditForm)">
+
+            <div
+                sf-schema="schema"
+                sf-form="form"
+                sf-model="data"
+                class="form-wrapper">
+            </div>
+
+            <kb-action-menu
+                add-new="true">
+            </kb-action-menu>
 
         </form>
 
