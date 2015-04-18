@@ -23,9 +23,12 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
+    constants: null,
     dist: 'dist',
     test: 'test'
   };
+
+  appConfig.constants = appConfig.app + '/scripts/config/envvars.coffee';
 
   var modRewrite = require('connect-modrewrite');
   var mountFolder = function (connect, dir) {
@@ -154,12 +157,22 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
+            '.sass-cache',
+            '<%= yeoman.constants %>',
             '<%= yeoman.dist %>/**/*',
             '!<%= yeoman.dist %>/.git**/*'
           ]
         }]
       },
-      server: '.tmp'
+      server: {
+        files: [{
+          src: [
+            '.tmp',
+            '.sass-cache',
+            '<%= yeoman.constants %>'
+          ]
+        }]
+      }
     },
 
     // Add vendor prefixed styles
@@ -542,7 +555,7 @@ module.exports = function (grunt) {
 
       ngconstants: {
         src: '.tmp/ngconstants/envvars.js',
-        dest: '<%= yeoman.app %>/scripts/config/envvars.coffee'
+        dest: '<%= yeoman.constants %>'
       }
 
     },
@@ -631,6 +644,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'ngconstant:development',
+    'js2coffee:ngconstants',
     'concurrent:test',
     'autoprefixer',
     'lint',
