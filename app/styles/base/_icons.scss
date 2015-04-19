@@ -6,6 +6,10 @@
         @extend .fa-plus-circle;
     }
 
+    &.#{$kb-icon-prefix}asset {
+        @extend .fa-desktop;
+    }
+
     &.#{$kb-icon-prefix}bars {
         @extend .fa-bars;
     }
