@@ -16,3 +16,9 @@ angular.module 'kitbagApp'
 
   $scope.organization = organization
 
+  $scope.snapMenu =
+    buttons: [
+      name: 'NEW_ASSET_PAGETITLE'
+      state: '^.^.asset.create'
+      class: 'add'
+    ]

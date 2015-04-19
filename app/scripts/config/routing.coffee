@@ -213,6 +213,37 @@ angular.module('kitbagApp')
                 defer.promise
               organization: getOrganization
             children: [
+              name: 'asset'
+              url: '/asset'
+              abstract: true
+              children: [
+                name: 'create'
+                url: '/create'
+                data:
+                  pageTitle: '@todo'
+                views:
+                  'site@':
+                    templateUrl: 'views/controllers/asset-edit.html'
+                    controller: 'AssetEditCtrl'
+              ,
+                name: 'view'
+                url: '/:assetId'
+                data:
+                  pageTitle: '@todo'
+                views:
+                  'site@':
+                    templateUrl: 'views/controllers/asset.html'
+                    controller: 'AssetCtrl'
+                children: [
+                  name: 'edit'
+                  url: '/edit'
+                  views:
+                    'site@':
+                      templateUrl: 'views/controllers/asset-edit.html'
+                      controller: 'AssetEditCtrl'
+                ]
+              ]
+            ,
               name: 'asset-type'
               url: '/type'
               abstract: true
