@@ -8,14 +8,16 @@
       "type": "string"
     },
     "lastMaintenanceDate": {
-      "type": "date-time"
+      "type": "string",
+      "format": "date"
     },
     "returnRequested": {
       "type": "boolean",
       "default": false
     },
     "purchaseDate": {
-      "type": "full-date"
+      "type": "string",
+      "format": "date"
     }
   },
   "required": [

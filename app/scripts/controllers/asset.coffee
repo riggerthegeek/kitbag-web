@@ -9,3 +9,6 @@
 ###
 angular.module 'kitbagApp'
   .controller 'AssetCtrl', ($scope, $stateParams) ->
+
+    console.log 'asset ctrl'
+    console.log $stateParams

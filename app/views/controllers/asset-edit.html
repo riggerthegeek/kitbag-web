@@ -1,5 +1,39 @@
 <kblayout>
 
-    Asset edit
+    <nav class="navbar" role="navigation">
+
+        <div class="container-fluid">
+
+            <div class="title">
+                <i class="icon icon-asset"></i>
+                {{ pageTitle | translate : { assetTypeName: assetType.getName() } }}
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="body">
+
+        <kb-breadcrumbs></kb-breadcrumbs>
+
+        <form
+            name="assetEditForm"
+            ng-submit="formSubmit(assetEditForm)">
+
+            <div
+                sf-schema="schema"
+                sf-form="form"
+                sf-model="data"
+                class="form-wrapper">
+            </div>
+
+            <kb-action-menu
+                add-new="true">
+            </kb-action-menu>
+
+        </form>
+
+    </div>
 
 </kblayout>

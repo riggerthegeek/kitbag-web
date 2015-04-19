@@ -191,7 +191,7 @@ angular.module('kitbagApp')
                 name: 'create'
                 url: '/create/:assetTypeId'
                 data:
-                  pageTitle: '@todo'
+                  pageTitle: '{{ assetType.getName() }}'
                 resolve:
                   asset: ->
                     null
@@ -201,13 +201,38 @@ angular.module('kitbagApp')
                       .then (assetType) ->
                         AssetTypeModel.toModel assetType
 
+                  schema: (schema) ->
+
+                    schema.asset()
+                      .then (obj) ->
+                        obj.data
+
+                  translate: ($translate) ->
+
+                    translate = [
+                      'FORM_CURRENT_LOCATION'
+                      'FORM_SERIAL_NUMBER'
+                      'FORM_LAST_MAINTENANCE_DATE'
+                      'FORM_PURCHASE_DATE'
+                      'FORM_RETURN_REQUESTED'
+                      'CURRENT_LOCATION_EXPLANATION'
+                      'SERIAL_NUMBER_EXPLANATION'
+                      'LAST_MAINTENANCE_DATE_EXPLANATION'
+                      'PURCHASE_DATE_EXPLANATION'
+                      'RETURN_REQUESTED_EXPLANATION'
+                    ]
+
+                    $translate translate
+
                 views:
+                  data:
+                    pageTitle: '@todo'
                   'site@':
                     templateUrl: 'views/controllers/asset-edit.html'
                     controller: 'AssetEditCtrl'
               ,
                 name: 'view'
-                url: '/:assetId'
+                url: '/{{ assetType.getName() }}tId'
                 data:
                   pageTitle: '@todo'
                 views:
