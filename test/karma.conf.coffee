@@ -69,6 +69,7 @@ module.exports = (config) ->
       'bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js'
       'bower_components/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js'
       'bower_components/angular-snap/angular-snap.js'
+      'bower_components/angular-schema-form-datepicker/bootstrap-datepicker.min.js'
       'app/scripts/**/*.coffee'
       'test/mock/**/*.coffee'
       'test/spec/**/*.coffee'
