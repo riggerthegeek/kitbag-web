@@ -43,6 +43,10 @@ angular.module('kitbagApp')
     resolve:
       user: ->
         null
+    views:
+      'beta@':
+        templateUrl: 'views/controllers/betaRelease.html'
+        controller: 'BetaReleaseCtrl'
     children: [
       name: 'public'
       abstract: true
