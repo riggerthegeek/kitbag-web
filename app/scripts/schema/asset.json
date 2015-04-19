@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "currentLocation": {
+      "type": "string"
+    },
+    "serialNumber": {
+      "type": "string"
+    },
+    "lastMaintenanceDate": {
+      "type": "date-time"
+    },
+    "returnRequested": {
+      "type": "boolean",
+      "default": false
+    },
+    "purchaseDate": {
+      "type": "full-date"
+    }
+  },
+  "required": [
+    "serialNumber",
+    "purchaseDate"
+  ]
+}

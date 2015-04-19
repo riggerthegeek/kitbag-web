@@ -21,6 +21,9 @@ angular.module 'kitbag.schema', []
   # Public API here
   {
 
+    asset: ->
+      loadSchema 'asset'
+
     assetType: ->
       loadSchema 'assettype'
 
