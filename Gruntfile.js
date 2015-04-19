@@ -630,6 +630,26 @@ module.exports = function (grunt) {
   });
 
 
+  grunt.registerTask('envvars', 'Generate the environment variables', function (environment) {
+
+    /* Allowed environmnets */
+    var envs = [
+      'development',
+      'production'
+    ];
+
+    if (envs.indexOf(environment) === -1) {
+      throw new Error('Unknown environment: ' + environment);
+    }
+
+    grunt.task.run([
+      'ngconstant:' + environment,
+      'js2coffee:ngconstants'
+    ]);
+
+  });
+
+
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -637,8 +657,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'ngconstant:development',
-      'js2coffee:ngconstants',
+      'envvars:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -656,8 +675,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'ngconstant:development',
-    'js2coffee:ngconstants',
+    'envvars:development',
     'concurrent:test',
     'autoprefixer',
     'lint',
@@ -667,8 +685,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'ngconstant:production',
-    'js2coffee:ngconstants',
+    'envvars:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
