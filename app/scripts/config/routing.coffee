@@ -10,22 +10,16 @@
 angular.module('kitbagApp')
 .config (stateHelperProvider, $urlRouterProvider) ->
 
-  getOrganization = ($q, $stateParams, engine, OrganizationModel) ->
+  getOrganization = ($stateParams, engine, OrganizationModel) ->
 
     organizationId = $stateParams.organizationId
 
     if organizationId == null
       null
     else
-      defer = $q.defer()
-
       engine.organization (organizationId)
-      .then (organization) ->
-        defer.resolve OrganizationModel.toModel organization
-      .catch (err) ->
-        defer.reject err
-
-      defer.promise
+        .then (organization) ->
+          OrganizationModel.toModel organization
 
   todoTemplate = '<kblayout><kb-breadcrumbs></kb-breadcrumbs>@todo: {{ name }}</kblayout>'
   todoController = ($scope, $state, user) ->
@@ -58,17 +52,11 @@ angular.module('kitbagApp')
             templateUrl: 'views/controllers/login.html'
             controller: 'LoginCtrl'
         resolve:
-          schema: ($q, schema) ->
-
-            defer = $q.defer()
+          schema: (schema) ->
 
             schema.login()
-            .then (obj) ->
-              defer.resolve obj.data
-            .catch (err) ->
-              defer.reject err
-
-            defer.promise
+              .then (obj) ->
+                obj.data
 
           translate: ($translate) ->
 
@@ -105,17 +93,12 @@ angular.module('kitbagApp')
       data:
         requireLogin: true
       resolve:
-        user: ($q, engine, UserModel) ->
-
-          defer = $q.defer()
+        user: (engine, UserModel) ->
 
           engine.userProfile()
-          .then (user) ->
-            defer.resolve UserModel.toModel user
-          .catch (err) ->
-            defer.reject err
+            .then (user) ->
+              UserModel.toModel user
 
-          defer.promise
       children: [
         name: 'barcode_scanner'
         url: 'scanner'
@@ -143,15 +126,11 @@ angular.module('kitbagApp')
           pageTitle: 'ORGANIZATIONS_PAGETITLE'
         resolve:
           organizations: ($q, engine, OrganizationsCollection) ->
-            defer = $q.defer()
 
             engine.myOrganizations()
-            .then (organizations) ->
-              defer.resolve OrganizationsCollection.toCollection organizations
-            .catch (err) ->
-              defer.reject err
+              .then (organizations) ->
+                OrganizationsCollection.toCollection organizations
 
-            defer.promise
         children: [
           name: 'organization'
           url: 'org'
@@ -168,16 +147,12 @@ angular.module('kitbagApp')
             resolve:
               organization: ->
                 null
-              schema: ($q, schema) ->
-                defer = $q.defer()
+              schema: (schema) ->
 
                 schema.organization()
-                .then (obj) ->
-                  defer.resolve obj.data
-                .catch (err) ->
-                  defer.reject err
+                  .then (obj) ->
+                    obj.data
 
-                defer.promise
               translate: ($translate) ->
 
                 translate = [
@@ -201,16 +176,12 @@ angular.module('kitbagApp')
             data:
               pageTitle: '{{ organization.getName() }}'
             resolve:
-              assetTypes: ($q, $stateParams, engine, AssetTypesCollection) ->
-                defer = $q.defer()
+              assetTypes: ($stateParams, engine, AssetTypesCollection) ->
 
                 engine.allAssetTypes $stateParams.organizationId
                 .then (assetTypes) ->
-                  defer.resolve AssetTypesCollection.toCollection assetTypes
-                .catch (err) ->
-                  defer.reject err
+                  AssetTypesCollection.toCollection assetTypes
 
-                defer.promise
               organization: getOrganization
             children: [
               name: 'asset'
@@ -218,9 +189,18 @@ angular.module('kitbagApp')
               abstract: true
               children: [
                 name: 'create'
-                url: '/create'
+                url: '/create/:assetTypeId'
                 data:
                   pageTitle: '@todo'
+                resolve:
+                  asset: ->
+                    null
+                  assetType: ($stateParams, engine, AssetTypeModel) ->
+
+                    engine.getAssetType $stateParams.organizationId, $stateParams.assetTypeId
+                      .then (assetType) ->
+                        AssetTypeModel.toModel assetType
+
                 views:
                   'site@':
                     templateUrl: 'views/controllers/asset-edit.html'
@@ -260,17 +240,11 @@ angular.module('kitbagApp')
                   assetType: ->
                     null
 
-                  schema: ($q, schema) ->
-
-                    defer = $q.defer()
+                  schema: (schema) ->
 
                     schema.assetType()
-                    .then (obj) ->
-                      defer.resolve obj.data
-                    .catch (err) ->
-                      defer.reject err
-
-                    defer.promise
+                      .then (obj) ->
+                        obj.data
 
                   translate: ($translate) ->
 
@@ -294,16 +268,12 @@ angular.module('kitbagApp')
                 data:
                   pageTitle: '{{ assetType.getName() }}'
                 resolve:
-                  assetType: ($q, $stateParams, engine, AssetTypeModel) ->
-                    defer = $q.defer()
+                  assetType: ($stateParams, engine, AssetTypeModel) ->
 
                     engine.getAssetType $stateParams.organizationId, $stateParams.assetTypeId
-                    .then (assetType) ->
-                      defer.resolve AssetTypeModel.toModel assetType
-                    .catch (err) ->
-                      defer.reject err
+                      .then (assetType) ->
+                        AssetTypeModel.toModel assetType
 
-                    defer.promise
                 children: [
                   name: 'edit'
                   url: '/edit'
@@ -314,17 +284,11 @@ angular.module('kitbagApp')
                   data:
                     pageTitle: 'BREADCRUMB_EDIT_ASSET_TYPE'
                   resolve:
-                    schema: ($q, schema) ->
-
-                      defer = $q.defer()
+                    schema: (schema) ->
 
                       schema.assetType()
-                      .then (obj) ->
-                        defer.resolve obj.data
-                      .catch (err) ->
-                        defer.reject err
-
-                      defer.promise
+                        .then (obj) ->
+                          obj.data
 
                     translate: ($translate) ->
 
@@ -350,16 +314,12 @@ angular.module('kitbagApp')
               data:
                 pageTitle: 'BREADCRUMB_EDIT_ORGANIZATION'
               resolve:
-                schema: ($q, schema) ->
-                  defer = $q.defer()
+                schema: (schema) ->
 
                   schema.organization()
-                  .then (obj) ->
-                    defer.resolve obj.data
-                  .catch (err) ->
-                    defer.reject err
+                    .then (obj) ->
+                      obj.data
 
-                  defer.promise
                 translate: ($translate) ->
 
                   translate = [
