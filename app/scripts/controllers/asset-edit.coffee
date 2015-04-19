@@ -9,6 +9,3 @@
 ###
 angular.module 'kitbagApp'
   .controller 'AssetEditCtrl', ($scope, $stateParams) ->
-
-    console.log('asset edit');
-    console.log($stateParams)
