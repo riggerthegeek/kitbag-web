@@ -37,6 +37,7 @@
   "NEW_ASSET_TYPE_PAGETITLE": "New asset type",
   "NEW_BUTTON": "New",
   "NEW_ORGANIZATION_PAGETITLE": "New organization",
+  "ORDINARY_ASSET_TYPES": "Asset types",
   "ORDINARY_ORGANIZATIONS": "Organizations",
   "ORGANIZATION_ASSET_TYPES_PAGETITLE": "{{ organizationName }}: Asset types",
   "ORGANIZATION_ASSET_PAGETITLE": "{{ organizationName }}: Assets",

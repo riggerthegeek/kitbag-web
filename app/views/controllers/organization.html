@@ -17,30 +17,32 @@
 
         <kb-breadcrumbs></kb-breadcrumbs>
 
-        <div class="lozenges">
+        <div class="wrapper">
 
-            <div ng-repeat="assetType in assetTypes.getAll()" class="lozenge lozenge-default">
+            <div class="title">
+                {{ 'ORDINARY_ASSET_TYPES' | translate }}
+            </div>
 
-                <a ui-sref=".asset-type.view({
-                    assetTypeId: assetType.id
-                })">
+            <div class="lozenges">
 
-                    <div class="lozenge-body">
+                <kblozenge
+                    ng-repeat="assetType in assetTypes.getAll()"
+                    href=".asset-type.view"
+                    href-vars="{ assetTypeId: assetType.id }">
+
+                        <div class="badge" tooltip="{{ 'ASSET_COUNT' | translate:{ count: assetType.assetCount() }:'messageformat' }}">
+                            <span ng-if="assetType.assetCount() > 10">
+                                10&plus;
+                            </span>
+
+                            <span ng-if="assetType.assetCount() <= 10">
+                                {{ assetType.assetCount() }}
+                            </span>
+                        </div>
+
                         {{ assetType.manufacturer }}
                         {{ assetType.model }}
-                    </div>
-
-                    <div class="badge" tooltip="{{ 'ASSET_COUNT' | translate:{ count: assetType.assetCount() }:'messageformat' }}">
-                        <span ng-if="assetType.assetCount() > 10">
-                            10&plus;
-                        </span>
-
-                        <span ng-if="assetType.assetCount() <= 10">
-                            {{ assetType.assetCount() }}
-                        </span>
-                    </div>
-
-                </a>
+                </kblozenge>
 
             </div>
 
