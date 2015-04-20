@@ -67,6 +67,25 @@ angular.module 'kitbagApp'
 
 
 
+    saveAsset: (data) ->
+
+      obj =
+        serialNumber: data.getSerialNumber()
+        currentLocation: data.getCurrentLocation()
+        returnRequested: data.getReturnRequested()
+        lastMaintenanceDate: data.getLastMaintenanceDate()
+        purchaseDate: data.getPurchaseDate()
+        type: data.getType()
+
+      if data.getId() == null
+        # Create new asset
+        api.callURL 'post', 'asset?organizationId=' + data.getOrganizationId(), obj
+      else
+        # Edit existing asset
+        api.callURL 'put', 'asset/' + data.getId() + '?organizationId=' + data.getOrganizationId(), obj
+
+
+
     saveAssetType: (data) ->
 
       obj =
