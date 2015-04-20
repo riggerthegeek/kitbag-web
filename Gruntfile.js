@@ -208,7 +208,10 @@ module.exports = function (grunt) {
           'bower_components/ngprogress-lite/ngprogress-lite.css',
           'bower_components/angular-schema-form/dist/bootstrap-decorator.js',
           'bower_components/angular-snap/angular-snap.css',
-          'bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'
+          'bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css',
+          'bower_components/pickadate/lib/themes/default.css',
+          'bower_components/pickadate/lib/themes/default.date.css',
+          'bower_components/pickadate/lib/themes/default.time.css'
         ]
       },
       sass: {
