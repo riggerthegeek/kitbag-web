@@ -4,7 +4,7 @@
             <a ui-sref="{{ crumb.route }}" ui-sref-opts="{reload: true}" ng-if="!$last">
                 {{ crumb.displayName | translate }}
             </a>
-        <span ng-show="$last">
+        <span ng-if="$last">
             {{ crumb.displayName | translate }}
         </span>
     </li>
