@@ -1,6 +1,9 @@
 <div class="form-group {{form.htmlClass}}" ng-class="{'has-error': hasError()}">
 
-    <label class="control-label" ng-show="showTitle()" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
+    <label class="control-label" ng-show="showTitle()" for="{{form.key.slice(-1)[0]}}">
+        {{form.title}}
+        <span ng-show="form.required">*</span>
+    </label>
 
     <div class="form-input-wrapper" ng-class="{'input-group': (form.fieldAddonLeft || form.fieldAddonRight)}">
 
