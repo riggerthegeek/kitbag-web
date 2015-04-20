@@ -25,7 +25,7 @@ describe 'Service: schema', ->
 
         schemaFactory.login()
         .then (obj) ->
-          expect(obj.data).to.be.eql
+          expect(obj).to.be.eql
             howdy: 'partner'
 
         $httpBackend.expectGET '/scripts/schema/login.json',
