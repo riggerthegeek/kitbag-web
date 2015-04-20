@@ -184,71 +184,6 @@ angular.module('kitbagApp')
 
               organization: getOrganization
             children: [
-              name: 'asset'
-              url: '/asset'
-              abstract: true
-              children: [
-                name: 'create'
-                url: '/create/:assetTypeId'
-                data:
-                  pageTitle: '{{ assetType.getName() }}'
-                resolve:
-                  asset: ->
-                    null
-                  assetType: ($stateParams, engine, AssetTypeModel) ->
-
-                    engine.getAssetType $stateParams.organizationId, $stateParams.assetTypeId
-                      .then (assetType) ->
-                        AssetTypeModel.toModel assetType
-
-                  schema: (schema) ->
-
-                    schema.asset()
-                      .then (obj) ->
-                        obj.data
-
-                  translate: ($translate) ->
-
-                    translate = [
-                      'FORM_CURRENT_LOCATION'
-                      'FORM_SERIAL_NUMBER'
-                      'FORM_LAST_MAINTENANCE_DATE'
-                      'FORM_PURCHASE_DATE'
-                      'FORM_RETURN_REQUESTED'
-                      'CURRENT_LOCATION_EXPLANATION'
-                      'SERIAL_NUMBER_EXPLANATION'
-                      'LAST_MAINTENANCE_DATE_EXPLANATION'
-                      'PURCHASE_DATE_EXPLANATION'
-                      'RETURN_REQUESTED_EXPLANATION'
-                    ]
-
-                    $translate translate
-
-                views:
-                  data:
-                    pageTitle: '@todo'
-                  'site@':
-                    templateUrl: 'views/controllers/asset-edit.html'
-                    controller: 'AssetEditCtrl'
-              ,
-                name: 'view'
-                url: '/{{ assetType.getName() }}tId'
-                data:
-                  pageTitle: '@todo'
-                views:
-                  'site@':
-                    templateUrl: 'views/controllers/asset.html'
-                    controller: 'AssetCtrl'
-                children: [
-                  name: 'edit'
-                  url: '/edit'
-                  views:
-                    'site@':
-                      templateUrl: 'views/controllers/asset-edit.html'
-                      controller: 'AssetEditCtrl'
-                ]
-              ]
-            ,
               name: 'asset-type'
               url: '/type'
               abstract: true
@@ -300,6 +235,93 @@ angular.module('kitbagApp')
                         AssetTypeModel.toModel assetType
 
                 children: [
+                  name: 'asset'
+                  url: '/asset'
+                  abstract: true
+                  children: [
+                    name: 'create'
+                    url: '/create'
+                    data:
+                      pageTitle: 'BREADCRUMB_CREATE_ASSET'
+                    resolve:
+                      asset: ->
+                        null
+
+                      schema: (schema) ->
+
+                        schema.asset()
+                        .then (obj) ->
+                          obj.data
+
+                      translate: ($translate) ->
+
+                        translate = [
+                          'FORM_CURRENT_LOCATION'
+                          'FORM_SERIAL_NUMBER'
+                          'FORM_LAST_MAINTENANCE_DATE'
+                          'FORM_PURCHASE_DATE'
+                          'FORM_RETURN_REQUESTED'
+                          'CURRENT_LOCATION_EXPLANATION'
+                          'SERIAL_NUMBER_EXPLANATION'
+                          'LAST_MAINTENANCE_DATE_EXPLANATION'
+                          'PURCHASE_DATE_EXPLANATION'
+                          'RETURN_REQUESTED_EXPLANATION'
+                        ]
+
+                        $translate translate
+
+                    views:
+                      'site@':
+                        templateUrl: 'views/controllers/asset-edit.html'
+                        controller: 'AssetEditCtrl'
+                  ,
+                    name: 'view'
+                    url: '/:assetId'
+                    data:
+                      pageTitle: '{{ asset.getSerialNumber() }}'
+                    resolve:
+                      asset: ->
+                        {
+                          getSerialNumber: ->
+                            'serial number'
+                        }
+                    views:
+                      'site@':
+                        templateUrl: 'views/controllers/asset.html'
+                        controller: 'AssetCtrl'
+                    children: [
+                      name: 'edit'
+                      url: '/edit'
+                      data:
+                        pageTitle: 'BREADCRUMB_EDIT_ASSET'
+                      resolve:
+                        asset: ->
+                          222
+                        schema: (schema) ->
+
+                          schema.assetType()
+                          .then (obj) ->
+                            obj.data
+
+                        translate: ($translate) ->
+
+                          translate = [
+                            'FORM_MANUFACTURER'
+                            'MANUFACTURER_EXPLANATION'
+                            'FORM_MODEL'
+                            'MODEL_EXPLANATION'
+                            'FORM_MAINTENANCE_SCHEDULE'
+                            'MAINTENANCE_SCHEDULE_EXPLANATION'
+                          ]
+
+                          $translate translate
+                      views:
+                        'site@':
+                          templateUrl: 'views/controllers/asset-edit.html'
+                          controller: 'AssetEditCtrl'
+                    ]
+                  ]
+                ,
                   name: 'edit'
                   url: '/edit'
                   views:
