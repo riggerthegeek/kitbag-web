@@ -85,6 +85,16 @@ angular.module 'kitbagApp'
     ###
       Static Methods
     ###
+    @setBool = (value, def) ->
+      if lodash.isBoolean value
+        value
+      else if value == 'Y' || value == 1 || value == '1'
+        true
+      else if value == 'N' || value == 0 || value == '0'
+        false
+      else
+        def
+
     @setDate = (value, def) ->
       if value
         if lodash.isDate value
