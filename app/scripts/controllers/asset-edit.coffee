@@ -16,7 +16,10 @@ angular.module 'kitbagApp'
   organization,
   schema,
   translate,
-  user
+  user,
+  AssetModel,
+  engine,
+  $state
 ) ->
 
   validationMessages = {}
@@ -45,7 +48,7 @@ angular.module 'kitbagApp'
     key: 'lastMaintenanceDate'
     title: translate.FORM_LAST_MAINTENANCE_DATE
     format: 'yyyy-mm-dd'
-    minDate: new Date()
+    maxDate: new Date()
     description: translate.LAST_MAINTENANCE_DATE_EXPLANATION
 #    validationMessage: validationMessages.
   ,
@@ -56,19 +59,57 @@ angular.module 'kitbagApp'
     description: translate.PURCHASE_DATE_EXPLANATION
 #    placeholder: null
 #    validationMessage: validationMessages.
-  ,
-    key: 'currentLocation'
-    title: translate.FORM_CURRENT_LOCATION
-    description: translate.CURRENT_LOCATION_EXPLANATION
-#    placeholder: null
-#    validationMessage: validationMessages.
+#  ,
+#    key: 'currentLocation'
+#    title: translate.FORM_CURRENT_LOCATION
+#    description: translate.CURRENT_LOCATION_EXPLANATION
+##    placeholder: null
+##    validationMessage: validationMessages.
   ]
+#
+#  if 2 == 3
+#    $scope.form.push
+#      key: 'returnRequested'
+#      title: translate.FORM_RETURN_REQUESTED
+#      description: translate.RETURN_REQUESTED_EXPLANATION
+#      hide: true
+##      placeholder: null
+##      validationMessage: validationMessages.
 
-  if 2 == 3
-    $scope.form.push
-      key: 'returnRequested'
-      title: translate.FORM_RETURN_REQUESTED
-      description: translate.RETURN_REQUESTED_EXPLANATION
-      hide: true
-#      placeholder: null
-#      validationMessage: validationMessages.
+  $scope.formSubmit = (form) ->
+
+    if form.$valid
+
+      # Push to model instance
+      data = AssetModel.toModel $scope.data
+
+      if $scope.createNew
+        # New asset - set the assetTypeId
+        data.setType assetType.getId()
+      else
+        # Edit existing - set the assetId
+        data.setId asset.getId()
+
+      # Add in the organizationId
+      data.setOrganizationId organization.getId()
+
+      # Attempt to save the asset
+      engine.saveAsset data
+        .then (result) ->
+          # Push into a model instance
+          obj = AssetModel.toModel result
+
+          if form.addNew
+            # Add a new asset type
+            $state.reload
+              reload: true
+          else
+            # Go to the asset we've just created
+
+            $state.go '^.view',
+              organizationId: organization.getId()
+              assetTypeId: assetType.getId()
+              assetId: obj.getId()
+
+        .catch (err) ->
+          console.log err
