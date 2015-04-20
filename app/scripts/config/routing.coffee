@@ -55,8 +55,6 @@ angular.module('kitbagApp')
           schema: (schema) ->
 
             schema.login()
-              .then (obj) ->
-                obj.data
 
           translate: ($translate) ->
 
@@ -150,8 +148,6 @@ angular.module('kitbagApp')
               schema: (schema) ->
 
                 schema.organization()
-                  .then (obj) ->
-                    obj.data
 
               translate: ($translate) ->
 
@@ -203,8 +199,6 @@ angular.module('kitbagApp')
                   schema: (schema) ->
 
                     schema.assetType()
-                      .then (obj) ->
-                        obj.data
 
                   translate: ($translate) ->
 
@@ -250,8 +244,6 @@ angular.module('kitbagApp')
                       schema: (schema) ->
 
                         schema.asset()
-                        .then (obj) ->
-                          obj.data
 
                       translate: ($translate) ->
 
@@ -300,8 +292,6 @@ angular.module('kitbagApp')
                         schema: (schema) ->
 
                           schema.assetType()
-                          .then (obj) ->
-                            obj.data
 
                         translate: ($translate) ->
 
@@ -334,8 +324,6 @@ angular.module('kitbagApp')
                     schema: (schema) ->
 
                       schema.assetType()
-                        .then (obj) ->
-                          obj.data
 
                     translate: ($translate) ->
 
@@ -364,8 +352,6 @@ angular.module('kitbagApp')
                 schema: (schema) ->
 
                   schema.organization()
-                    .then (obj) ->
-                      obj.data
 
                 translate: ($translate) ->
 

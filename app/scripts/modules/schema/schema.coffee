@@ -17,6 +17,8 @@ angular.module 'kitbag.schema', []
     url = schemaPrefix + schema + schemaSuffix
 
     $http.get url
+      .then (res) ->
+        res.data
 
   # Public API here
   {
