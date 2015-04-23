@@ -8,7 +8,7 @@
  # Controller of the kitbagApp
 ###
 angular.module 'kitbagApp'
-.controller 'AssetTypeCtrl', ($scope, organization, user, assetType) ->
+.controller 'AssetTypeCtrl', ($scope, organization, user, assetType, assets) ->
 
   $scope.user = user
 
@@ -22,3 +22,5 @@ angular.module 'kitbagApp'
       state: '.asset.create({ assetTypeId: "' + assetType.getId() + '" })'
       class: 'add'
     ]
+
+  console.log assets

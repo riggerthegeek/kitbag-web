@@ -15,6 +15,11 @@ angular.module 'kitbagApp'
 
 
 
+    allAssets: (organizationId, assetTypeId) ->
+
+
+
+
     allAssetTypes: (organizationId) ->
 
       api.callURL 'get', 'asset/type?organizationId=' + organizationId

@@ -222,6 +222,12 @@ angular.module('kitbagApp')
                 data:
                   pageTitle: '{{ assetType.getName() }}'
                 resolve:
+                  assets: ($stateParams, engine, AssetsCollection) ->
+
+                    console.log AssetsCollection
+
+                    engine.allAssets
+
                   assetType: ($stateParams, engine, AssetTypeModel) ->
 
                     engine.getAssetType $stateParams.organizationId, $stateParams.assetTypeId
