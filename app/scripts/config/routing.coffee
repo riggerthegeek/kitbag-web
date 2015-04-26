@@ -224,9 +224,9 @@ angular.module('kitbagApp')
                 resolve:
                   assets: ($stateParams, engine, AssetsCollection) ->
 
-                    console.log AssetsCollection
-
-                    engine.allAssets
+                    engine.allAssets $stateParams.organizationId, $stateParams.assetTypeId
+                      .then (assets) ->
+                        AssetsCollection.toCollection assets
 
                   assetType: ($stateParams, engine, AssetTypeModel) ->
 
