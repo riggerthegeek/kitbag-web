@@ -109,10 +109,10 @@ angular.module('kitbagApp')
       ,
         name: 'logout'
         url: 'logout'
-        resolve:
-          logout: (loginService) ->
-
-            loginService.logout true
+        views:
+          'site@':
+            controller: (loginService) ->
+              loginService.logout true
       ,
         name: 'organizations'
         url: ''
