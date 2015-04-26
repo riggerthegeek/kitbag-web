@@ -14,3 +14,6 @@ angular.module('kitbagApp')
   ###
   loginServiceProvider.setDefaultLoginPage 'kitbag.private.organizations'
   loginServiceProvider.setFallbackState 'kitbag.public.login'
+  loginServiceProvider.setIgnoreStates [
+    'kitbag.private.logout'
+  ]

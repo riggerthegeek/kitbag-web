@@ -15,6 +15,8 @@ angular.module 'kitbagApp'
 
   fallbackState = null
 
+  ignoreStates = []
+
   # Private constructor
   class Login
 
@@ -29,9 +31,10 @@ angular.module 'kitbagApp'
     checkLoggedIn: (currentState, currentParams) ->
       if @isLoggedIn() == false
 
-        # Not logged in - save current state in case we log in
-        @cookies.set @loginRedirectCookie, currentState
-        @cookies.set @loginRedirectParams, currentParams
+        if ignoreStates.indexOf(currentState) == -1
+          # Not logged in - save current state in case we log in
+          @cookies.set @loginRedirectCookie, currentState
+          @cookies.set @loginRedirectParams, currentParams
 
         # Now, send to the fallback state
         @state.go fallbackState
@@ -68,7 +71,7 @@ angular.module 'kitbagApp'
         @state.reload()
       else if redirectState == true
         # Go to default page
-        @state.go defaultLoginPage
+        console.log(@state.go defaultLoginPage)
       else
         # Go to specified page
         @state.go redirectState
@@ -97,6 +100,16 @@ angular.module 'kitbagApp'
   ###
   @setFallbackState = (state) ->
     fallbackState = state
+
+
+
+  ###*
+   # Set Ignore States
+   #
+   # Sets the states we ignore when saving the pages
+  ###
+  @setIgnoreStates = (states) ->
+    ignoreStates = states
 
 
 
