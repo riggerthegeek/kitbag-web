@@ -42,8 +42,6 @@ angular.module 'kitbagApp'
 
     login: (emailAddress, password, rememberMe) ->
 
-      defer = $q.defer()
-
       api.callURL 'post', 'system/web',
         emailAddress: emailAddress,
         password: password
@@ -53,8 +51,6 @@ angular.module 'kitbagApp'
           # Success - store the sessionId
           authentication.setAuthKey data.sessionId, rememberMe
 
-          defer.resolve()
-
         .catch (obj) ->
 
           # Failed - clear the sessionId
@@ -62,9 +58,7 @@ angular.module 'kitbagApp'
 
           status = if obj.status == 401 then 'UNAUTHORIZED' else 'UNKNOWN_ERR'
 
-          defer.reject status
-
-      defer.promise
+          $q.reject status
 
 
 
