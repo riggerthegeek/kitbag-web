@@ -71,7 +71,7 @@ angular.module 'kitbagApp'
         @state.reload()
       else if redirectState == true
         # Go to default page
-        console.log(@state.go defaultLoginPage)
+        @state.go defaultLoginPage
       else
         # Go to specified page
         @state.go redirectState
