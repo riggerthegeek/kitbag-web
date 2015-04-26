@@ -17,7 +17,7 @@ angular.module 'kitbagApp'
 
     allAssets: (organizationId, assetTypeId) ->
 
-      url = 'asset?organizationId=' + organizationId;
+      url = 'asset?organizationId=' + organizationId
 
       if assetTypeId
         # The assetTypeId parameter is optional - returns all asset types otherwise
