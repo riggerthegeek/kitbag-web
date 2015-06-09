@@ -14,6 +14,8 @@ angular.module 'kitbagApp'
 
   $scope.assetType = assetType
 
+  $scope.assets = assets
+
   $scope.organization = organization
 
   $scope.snapMenu =
@@ -22,5 +24,3 @@ angular.module 'kitbagApp'
       state: '.asset.create({ assetTypeId: "' + assetType.getId() + '" })'
       class: 'add'
     ]
-
-  console.log assets

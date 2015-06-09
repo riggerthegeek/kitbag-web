@@ -17,7 +17,35 @@
 
         <kb-breadcrumbs></kb-breadcrumbs>
 
-        asset type view
+        <div class="wrapper">
+
+            <div class="title">
+                {{ 'ORDINARY_ASSET_TYPES' | translate }}
+            </div>
+
+            <div class="lozenges">
+
+                <kblozenge
+                    ng-repeat="asset in assets.getAll()"
+                    href=".asset-type.view"
+                    href-vars="{ asset: asset.id }">
+
+                    <!--<div class="badge" tooltip="{{ 'ASSET_COUNT' | translate:{ count: asset.assetCount() }:'messageformat' }}">-->
+                    <!--<span ng-if="asset.assetCount() > 10">-->
+                    <!--10&plus;-->
+                    <!--</span>-->
+
+                    <!--<span ng-if="assetType.assetCount() <= 10">-->
+                    <!--{{ assetType.assetCount() }}-->
+                    <!--</span>-->
+                    <!--</div>-->
+
+                    {{ asset.serialNumber }}
+                </kblozenge>
+
+            </div>
+
+        </div>
 
     </div>
 
