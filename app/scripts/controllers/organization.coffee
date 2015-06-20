@@ -24,7 +24,9 @@ angular.module 'kitbagApp'
         state: '.asset-type.create'
         class: 'add'
       ,
-        name: 'EDIT_ORGANIZATION_PAGETITLE'
+        null
+      ,
+        name: 'ORGANIZATION_EDIT'
         state: '.edit'
         class: 'edit'
       ,

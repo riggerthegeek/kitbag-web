@@ -34,14 +34,23 @@ angular.module 'kitbagApp'
 
 
 
-    deleteOrganization: (organizationId) ->
+    deleteAssetType: (organizationId, assetTypeId) ->
 
       # @todo connect this to the API
-      $q (resolve, reject) ->
+      $q (resolve) ->
         setTimeout ->
           resolve()
         , 50
 
+
+
+    deleteOrganization: (organizationId) ->
+
+      # @todo connect this to the API
+      $q (resolve) ->
+        setTimeout ->
+          resolve()
+        , 50
 
 
 

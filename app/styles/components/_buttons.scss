@@ -4,7 +4,7 @@
         @extend .fa;
 
         padding-left: 3px;
-        content: $fa-var-plus-circle;
+        content: $fa-var-plus;
     }
 
 }
@@ -15,7 +15,7 @@
         @extend .fa;
 
         padding-left: 3px;
-        content: $fa-var-minus-circle;
+        content: $fa-var-trash;
     }
 
 }

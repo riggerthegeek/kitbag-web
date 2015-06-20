@@ -12,6 +12,7 @@
 
         <ul ng-if="snap.buttons.length > 0">
             <li ng-repeat="item in snap.buttons">
+                <hr ng-if="!item" />
                 <a
                     ui-sref="{{ item.state }}"
                     ng-class="item.class"

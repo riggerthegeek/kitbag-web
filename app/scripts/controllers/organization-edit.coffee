@@ -59,7 +59,7 @@ angular.module 'kitbagApp'
 
           if form.addNew
             # Add a new organization
-            $state.reload()
+            $state.reload
           else
             # Go to organization view page
             $state.go '^.view',
