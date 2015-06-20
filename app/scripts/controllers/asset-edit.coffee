@@ -101,8 +101,7 @@ angular.module 'kitbagApp'
 
           if form.addNew
             # Add a new asset type
-            $state.go $state.current, $stateParams,
-              reload: true
+            $state.reload()
           else
             # Go to the asset we've just created
 

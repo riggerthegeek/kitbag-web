@@ -59,13 +59,11 @@ angular.module 'kitbagApp'
 
           if form.addNew
             # Add a new organization
-            $state.go $state.current, {},
-              reload: true
+            $state.reload()
           else
             # Go to organization view page
             $state.go '^.view',
               organizationId: organization.id
 
         .catch (err) ->
-          console.log err
           formError.open 'API_ERROR_' + err.status
