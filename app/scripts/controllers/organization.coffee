@@ -24,6 +24,10 @@ angular.module 'kitbagApp'
         state: '.asset-type.create'
         class: 'add'
       ,
+        name: 'EDIT_ORGANIZATION_PAGETITLE'
+        state: '.edit'
+        class: 'edit'
+      ,
         name: 'DELETE_ORGANIZATION_PAGETITLE'
         confirm: 'CONFIRM_DELETE'
         class: 'delete'

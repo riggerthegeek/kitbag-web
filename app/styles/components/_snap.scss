@@ -133,7 +133,15 @@
                     @include button-variant($white, $dark-red, $dark-grey);
 
                     &:after {
-                        @extend .btn-delete
+                        @extend .btn-delete;
+                    }
+
+                }
+
+                &.edit {
+
+                    &:after {
+                        @extend .btn-edit;
                     }
 
                 }

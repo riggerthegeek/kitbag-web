@@ -18,6 +18,7 @@
   "COOKIE_ACCEPT_POLICY": "Yes, I know - shush",
   "CURRENT_LOCATION_EXPLANATION": "This is the current location of the asset",
   "DELETE_ORGANIZATION_PAGETITLE": "Delete organization",
+  "EDIT_ORGANIZATION_PAGETITLE": "Edit organization",
   "ERROR_INVALID_EMAIL_PATTERN": "Invalid email address",
   "ERROR_LOGIN_UNAUTHORIZED": "Ooops, that email address and password combination doesn't work",
   "ERROR_LOGIN_UNKNOWN": "Ooops, the server is currently down - please try again later",
