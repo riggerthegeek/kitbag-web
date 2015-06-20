@@ -12,7 +12,18 @@
 
         <ul ng-if="snap.buttons.length > 0">
             <li ng-repeat="item in snap.buttons">
-                <a ui-sref="{{ item.state }}" ng-class="item.class" ng-if="!item.hide">
+                <a
+                    ui-sref="{{ item.state }}"
+                    ng-class="item.class"
+                    ng-if="!item.hide && item.state && !item.fn"
+                    ng-attr-kb-confirm-click="{{ item.confirm | translate }}">
+                    {{ item.name | translate }}
+                </a>
+                <a
+                    ng-click="item.fn()"
+                    ng-class="item.class"
+                    ng-if="!item.hide && !item.state && item.fn"
+                    ng-attr-kb-confirm-click="{{ item.confirm | translate }}">
                     {{ item.name | translate }}
                 </a>
             </li>
