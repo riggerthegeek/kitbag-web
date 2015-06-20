@@ -24,3 +24,4 @@ angular.module('kitbagApp')
   .determinePreferredLanguage()
   .fallbackLanguage 'en'
   .addInterpolation '$translateMessageFormatInterpolation'
+  .useSanitizeValueStrategy 'sanitize'
