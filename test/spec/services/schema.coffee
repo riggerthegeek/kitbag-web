@@ -31,7 +31,7 @@ describe 'Service: schema', ->
         $httpBackend.expectGET '/scripts/schema/login.json',
           Accept: 'application/json, text/plain, */*'
 
-        $httpBackend.flush();
+        $httpBackend.flush()
 
       it 'should handle a login schema error', ->
         $httpBackend.whenGET '/scripts/schema/login.json'
