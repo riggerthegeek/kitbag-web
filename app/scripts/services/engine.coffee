@@ -54,6 +54,12 @@ angular.module 'kitbagApp'
 
 
 
+    getAsset: (organizationId, assetId) ->
+
+      api.callURL 'get', 'asset/' + assetId + '?organizationId=' + organizationId
+
+
+
     getAssetType: (organizationId, assetTypeId) ->
 
       api.callURL 'get', 'asset/type/' + assetTypeId + '?organizationId=' + organizationId
@@ -102,7 +108,7 @@ angular.module 'kitbagApp'
         returnRequested: data.getReturnRequested()
         lastMaintenanceDate: data.getLastMaintenanceDate()
         purchaseDate: data.getPurchaseDate()
-        type: data.getType()
+        type: data.getType().getId()
 
       if data.getId() == null
         # Create new asset

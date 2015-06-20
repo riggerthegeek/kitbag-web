@@ -278,11 +278,18 @@ angular.module('kitbagApp')
                     data:
                       pageTitle: '{{ asset.getSerialNumber() }}'
                     resolve:
-                      asset: ->
-                        {
-                          getSerialNumber: ->
-                            'serial number'
-                        }
+                      asset: ($q, $stateParams, engine, AssetModel) ->
+
+                        engine.getAsset $stateParams.organizationId, $stateParams.assetId
+                          .then (asset) ->
+
+                            objAsset = AssetModel.toModel asset
+
+                            if objAsset.getType().getId() == $stateParams.assetTypeId
+                              objAsset
+                            else
+                              $q.reject 'MISMATCHED_ASSET_TYPE_IDS'
+
                     views:
                       'site@':
                         templateUrl: 'views/controllers/asset.html'

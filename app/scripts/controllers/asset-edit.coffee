@@ -85,7 +85,8 @@ angular.module 'kitbagApp'
 
       if $scope.createNew
         # New asset - set the assetTypeId
-        data.setType assetType.getId()
+        data.setType
+          id: assetType.getId()
       else
         # Edit existing - set the assetId
         data.setId asset.getId()

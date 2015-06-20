@@ -8,7 +8,7 @@
  # Controller of the kitbagApp
 ###
 angular.module 'kitbagApp'
-.factory 'AssetModel', (lodash, Model) ->
+.factory 'AssetModel', (lodash, AssetTypeModel, Model) ->
 
 
   class AssetModel extends Model
@@ -24,7 +24,8 @@ angular.module 'kitbagApp'
       @returnRequested = Model.setBool @_data.returnRequested, false
       @lastMaintenanceDate = Model.setDate @_data.lastMaintenanceDate, null
       @purchaseDate = Model.setDate @_data.purchaseDate, null
-      @type = @_data.type || null
+      @type = @setType @_data.type
+
 
       # Set data
       @setOrganizationId @_data.organizationId
@@ -63,10 +64,19 @@ angular.module 'kitbagApp'
       @
 
 
-    setType: (typeId) ->
-      @type = typeId
+    setType: (type) ->
+      @type = new AssetTypeModel type
       @
 
+
+    @toModel = (data) ->
+
+      obj = super(data)
+
+      if lodash.isObject(data) && lodash.isObject(data.type)
+        obj.type = AssetTypeModel.toModel data.type
+
+      obj
 
 
   AssetModel

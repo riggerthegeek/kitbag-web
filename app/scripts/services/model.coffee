@@ -24,7 +24,7 @@ angular.module 'kitbagApp'
 
       @_data = {}
 
-      if lodash.isObject data == false
+      if lodash.isObject(data) == false
         data = {}
 
       # Set the input data to the model
@@ -35,9 +35,14 @@ angular.module 'kitbagApp'
       @created = null
       @updated = null
 
-      @setId @_data.id
-      @setCreated @_data.created
-      @setUpdated @_data.updated
+      if @_data.id
+        @setId @_data.id
+
+      if @_data.created
+        @setCreated @_data.created
+
+      if @_data.updated
+        @setUpdated @_data.updated
 
 
     getId: ->
