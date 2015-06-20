@@ -8,3 +8,14 @@
     }
 
 }
+
+.btn-delete {
+
+    &:after {
+        @extend .fa;
+
+        padding-left: 3px;
+        content: $fa-var-minus-circle;
+    }
+
+}

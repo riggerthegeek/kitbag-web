@@ -8,7 +8,7 @@
  # Controller of the kitbagApp
 ###
 angular.module 'kitbagApp'
-  .controller 'OrganizationCtrl', ($scope, $stateParams, engine, assetTypes, organization, user) ->
+  .controller 'OrganizationCtrl', ($scope, $state, $stateParams, engine, assetTypes, organization, user) ->
 
     $scope.user = user
 
@@ -23,4 +23,12 @@ angular.module 'kitbagApp'
         name: 'NEW_ASSET_TYPE_PAGETITLE'
         state: '.asset-type.create'
         class: 'add'
+      ,
+        name: 'DELETE_ORGANIZATION_PAGETITLE'
+        confirm: 'CONFIRM_DELETE'
+        class: 'delete'
+        fn: ->
+          engine.deleteOrganization organization.getId()
+            .then ->
+              $state.go '^.^'
       ]
