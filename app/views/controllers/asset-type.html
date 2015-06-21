@@ -6,7 +6,10 @@
 
             <div class="title">
                 <i class="icon icon-asset"></i>
-                {{ 'ORGANIZATION_ASSET_PAGETITLE' | translate : { organizationName: organization.getName() } }}
+                {{ 'ORGANIZATION_ASSET_PAGETITLE' | translate : {
+                  organizationName: organization.getName(),
+                  assetTypeName: assetType.getName(),
+                } }}
             </div>
 
         </div>
@@ -27,8 +30,8 @@
 
                 <kblozenge
                     ng-repeat="asset in assets.getAll()"
-                    href=".asset-type.view"
-                    href-vars="{ asset: asset.id }">
+                    href=".asset.view"
+                    href-vars="{ assetId: asset.id }">
 
                     <!--<div class="badge" tooltip="{{ 'ASSET_COUNT' | translate:{ count: asset.assetCount() }:'messageformat' }}">-->
                     <!--<span ng-if="asset.assetCount() > 10">-->

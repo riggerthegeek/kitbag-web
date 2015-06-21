@@ -6,7 +6,12 @@
 
             <div class="title">
                 <i class="icon icon-asset"></i>
-                {{ pageTitle | translate : { organizationName: organization.getName() } }}
+                {{ 'ASSET_PAGETITLE' | translate : {
+                  organizationName: organization.getName(),
+                  assetType: asset.getType().getName(),
+                  serialNumber: asset.getSerialNumber()
+                } }}
+
             </div>
 
         </div>

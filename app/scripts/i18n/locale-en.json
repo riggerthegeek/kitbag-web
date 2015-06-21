@@ -1,6 +1,7 @@
 {
   "API_ERROR_405": "Server method not allowed",
   "API_ERROR_500": "Unknown server error",
+  "ASSET_PAGETITLE": "{{ organizationName }}: {{ assetType }} - {{ serialNumber }}",
   "ASSET_COUNT": "{count} {count, select, 1{asset} other{assets}}",
   "ASSET_CREATE_PAGETITLE": "{{ assetTypeName }}: Create new asset",
   "ASSET_EDIT_PAGETITLE": "{{ assetTypeName }}: Edit",
@@ -54,7 +55,7 @@
   "ORDINARY_ASSET_TYPES": "Asset types",
   "ORDINARY_ORGANIZATIONS": "Organizations",
   "ORGANIZATION_ASSET_TYPES_PAGETITLE": "{{ organizationName }}: Asset types",
-  "ORGANIZATION_ASSET_PAGETITLE": "{{ organizationName }}: Assets",
+  "ORGANIZATION_ASSET_PAGETITLE": "{{ organizationName }}: {{ assetTypeName }}",
   "ORGANIZATION_EDIT": "Edit organization",
   "ORGANIZATION_FAVOURITE_EXPLANATION": "A favorite organization appears at the top of the page",
   "ORGANIZATION_NAME_EXPLANATION": "The name of your organization",

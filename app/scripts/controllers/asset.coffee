@@ -8,7 +8,17 @@
  # Controller of the kitbagApp
 ###
 angular.module 'kitbagApp'
-  .controller 'AssetCtrl', ($scope, $stateParams) ->
+.controller 'AssetCtrl', (
+  $scope,
+  $state,
+  engine,
+  organization,
+  user,
+  asset
+) ->
 
-    console.log 'asset ctrl'
-    console.log $stateParams
+  $scope.user = user
+
+  $scope.organization = organization
+
+  $scope.asset = asset
