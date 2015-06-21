@@ -300,8 +300,18 @@ angular.module('kitbagApp')
                       data:
                         pageTitle: 'BREADCRUMB_EDIT_ASSET'
                       resolve:
-                        asset: ->
-                          222
+                        asset: ($q, $stateParams, engine, AssetModel) ->
+
+                          engine.getAsset $stateParams.organizationId, $stateParams.assetId
+                          .then (asset) ->
+
+                            objAsset = AssetModel.toModel asset
+
+                            if objAsset.getType().getId() == $stateParams.assetTypeId
+                              objAsset
+                            else
+                              $q.reject 'MISMATCHED_ASSET_TYPE_IDS'
+
                         schema: (schema) ->
 
                           schema.assetType()
