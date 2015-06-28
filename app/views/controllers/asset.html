@@ -22,7 +22,28 @@
 
         <kb-breadcrumbs></kb-breadcrumbs>
 
-        asset view
+        <!--<pre>{{ schema.properties | json }}</pre>-->
+        <div class="form-horizontal">
+            <div class="form-group" ng-repeat="(key, value) in schema.properties">
+
+                <div ng-if="translate[key]">
+
+                    <label class="col-sm-3 control-label">
+                        {{ translate[key] | translate }}
+                    </label>
+
+                    <div class="col-sm-9">
+                        <kb-schema-string
+                            schema="value"
+                            data="data[key]">
+                                &lt;null&gt;
+                        </kb-schema-string>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
 
     </div>
 

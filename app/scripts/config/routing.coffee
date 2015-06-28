@@ -290,6 +290,10 @@ angular.module('kitbagApp')
                             else
                               $q.reject 'MISMATCHED_ASSET_TYPE_IDS'
 
+                      schema: (schema) ->
+
+                        schema.asset()
+
                     views:
                       'site@':
                         templateUrl: 'views/controllers/asset.html'

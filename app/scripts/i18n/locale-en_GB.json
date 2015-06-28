@@ -10,5 +10,13 @@
   "ORGANIZATION_FAVOURITE_EXPLANATION": "A favourite organisation appears at the top of the page",
   "ORGANIZATION_NAME_EXPLANATION": "The name of your organisation",
   "ORGANIZATION_NAME_PLACEHOLDER": "Springfield Nuclear Plant",
-  "ORGANIZATIONS_PAGETITLE": "My organisations"
+  "ORGANIZATIONS_PAGETITLE": "My organisations",
+  "DATE_FULLDATE": "EEEE, d MMMM y",
+  "DATE_LONGDATE": "d MMMM y",
+  "DATE_MEDIUM": "d MMM y HH:mm:ss",
+  "DATE_MEDIUMDATE": "d MMM y",
+  "DATE_MEDIUMTIME": "HH:mm:ss",
+  "DATE_SHORT": "dd/MM/y HH:mm",
+  "DATE_SHORTDATE": "dd/MM/y",
+  "DATE_SHORTTIME": "HH:mm"
 }

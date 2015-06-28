@@ -76,5 +76,13 @@
   "SYSTEM_ERROR_GENERAL": "General system error",
   "TEXT_RETURN_TO_HOMEPAGE": "Return to homepage",
   "TOGGLE_NAVIGATION": "Toggle navigation",
-  "USERS_PAGETITLE": "Users"
+  "USERS_PAGETITLE": "Users",
+  "DATE_FULLDATE": "EEEE, MMMM d, y",
+  "DATE_LONGDATE": "MMMM d, y",
+  "DATE_MEDIUM": "MMM d, y h:mm:ss a",
+  "DATE_MEDIUMDATE": "MMM d, y",
+  "DATE_MEDIUMTIME": "h:mm:ss a",
+  "DATE_SHORT": "M/d/yy h:mm a",
+  "DATE_SHORTDATE": "M/d/yy",
+  "DATE_SHORTTIME": "h:mm a"
 }

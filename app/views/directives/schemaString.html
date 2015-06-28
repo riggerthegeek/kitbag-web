@@ -1,0 +1,38 @@
+<div ng-if="data === null" ng-transclude></div>
+
+<div ng-if="data !== null">
+
+    <div ng-switch="schema.type">
+
+        <div ng-switch-when="string">
+
+            <div ng-switch="schema.format">
+
+                <div ng-switch-when="date">
+                    {{ data | date : ( 'DATE_SHORTDATE' | translate ) }}
+                </div>
+                <div ng-switch-when="date-time">
+                    {{ data | date : 'MMM d, y h:mm:ss a' }}
+                </div>
+                <div ng-switch-default>
+                    {{ data }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div ng-switch-when="boolean">
+
+            <div ng-if="data === true">
+                <i class="icon icon-true"></i>
+            </div>
+            <div ng-if="data !== true">
+                <i class="icon icon-false"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

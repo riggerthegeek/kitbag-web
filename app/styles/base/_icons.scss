@@ -14,6 +14,10 @@
         @extend .fa-bars;
     }
 
+    &.#{$kb-icon-prefix}false {
+        @extend .fa-times;
+    }
+
     &.#{$kb-icon-prefix}help {
         @extend .fa-question-circle;
     }
@@ -40,6 +44,10 @@
 
     &.#{$kb-icon-prefix}settings {
         @extend .fa-cogs;
+    }
+
+    &.#{$kb-icon-prefix}true {
+        @extend .fa-check;
     }
 
     &.#{$kb-icon-prefix}users {
