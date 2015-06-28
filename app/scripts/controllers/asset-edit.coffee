@@ -38,6 +38,8 @@ angular.module 'kitbagApp'
 
   $scope.schema = schema
 
+  console.log(translate);
+
   $scope.form = [
     key: 'serialNumber'
     title: translate.FORM_SERIAL_NUMBER

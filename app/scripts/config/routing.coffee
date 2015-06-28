@@ -314,20 +314,25 @@ angular.module('kitbagApp')
 
                         schema: (schema) ->
 
-                          schema.assetType()
+                          schema.asset()
 
                         translate: ($translate) ->
 
                           translate = [
-                            'FORM_MANUFACTURER'
-                            'MANUFACTURER_EXPLANATION'
-                            'FORM_MODEL'
-                            'MODEL_EXPLANATION'
-                            'FORM_MAINTENANCE_SCHEDULE'
-                            'MAINTENANCE_SCHEDULE_EXPLANATION'
+                            'FORM_CURRENT_LOCATION'
+                            'FORM_SERIAL_NUMBER'
+                            'FORM_LAST_MAINTENANCE_DATE'
+                            'FORM_PURCHASE_DATE'
+                            'FORM_RETURN_REQUESTED'
+                            'CURRENT_LOCATION_EXPLANATION'
+                            'SERIAL_NUMBER_EXPLANATION'
+                            'LAST_MAINTENANCE_DATE_EXPLANATION'
+                            'PURCHASE_DATE_EXPLANATION'
+                            'RETURN_REQUESTED_EXPLANATION'
                           ]
 
                           $translate translate
+
                       views:
                         'site@':
                           templateUrl: 'views/controllers/asset-edit.html'
