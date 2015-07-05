@@ -20,8 +20,6 @@ angular.module 'kitbagApp'
 
   link: (scope, element, attrs) ->
 
-    console.log($locale);
-
     # Decide how to display the data
     if lodash.isNull(scope.data) || lodash.isUndefined(scope.data)
       # Empty data
